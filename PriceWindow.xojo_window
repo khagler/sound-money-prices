@@ -655,8 +655,38 @@ End
 	#tag EndProperty
 
 
+	#tag Constant, Name = kDinarInOUnces, Type = Double, Dynamic = False, Default = \".1366", Scope = Private
+	#tag EndConstant
+
+	#tag Constant, Name = kDirhamInOunces, Type = Double, Dynamic = False, Default = \"0.095648", Scope = Private
+	#tag EndConstant
+
+
 #tag EndWindowCode
 
+#tag Events FiatPrice
+	#tag Event
+		Sub TextChange()
+		  // TODO: validate the entered price
+		  
+		  Dim v As Variant
+		  Dim fiat, XAU, XAG, BTC As Double
+		  
+		  v = me.Text
+		  fiat = v.DoubleValue
+		  
+		  XAU = fiat / self.CurrentRates.GoldRate
+		  XAG = fiat / self.CurrentRates.SilverRate
+		  BTC = fiat / self.CurrentRates.BitcoinRate
+		  
+		  self.GoldOunces.Text = Str(XAU)
+		  self.DinarPrice.Text = Str(XAU / self.kDinarInOUnces)
+		  self.SilverOunces.Text = Str(XAG)
+		  self.DirhamPrice.Text = Str(XAG / self.kDirhamInOunces)
+		  self.Bitcoins.Text = Str(BTC)
+		End Sub
+	#tag EndEvent
+#tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
 		Name="BackColor"
