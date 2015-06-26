@@ -23,7 +23,7 @@ Begin Window PriceWindow
    MinWidth        =   64
    Placement       =   0
    Resizeable      =   True
-   Title           =   "Untitled"
+   Title           =   "Sound Money Prices"
    Visible         =   True
    Width           =   600
    Begin Label Label1
