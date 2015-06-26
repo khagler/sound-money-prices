@@ -3,13 +3,32 @@ Protected Class Rates
 	#tag Method, Flags = &h0
 		Sub Constructor()
 		  self.GetPreciousMetalRates
+		  self.GetBitcoinRates
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub GetBitcoinRates()
+		  Dim rateSocket As New HTTPSecureSocket
+		  Dim ratesJSON As JSONItem
+		  Dim JSONString As String
+		  
+		  // TODO: Make this asynchronous
+		  rateSocket.Yield = True
+		  JSONString = rateSocket.Get(self.kBitcoinRatesURL, 0)
+		  Try
+		    ratesJSON = New JSONItem(JSONString)
+		  Catch e As JSONException
+		    MsgBox("JSON Exception: " + e.Message)
+		  End Try
+		  
+		  self.BitcoinRate = ratesJSON.Child("USD").Value("24h")
+		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Sub GetPreciousMetalRates()
-		  // We need to get the JSON containing the exchange rates as soon as the window activates.
-		  
 		  Dim ratesXML As New XmlDocument
 		  Dim rateSocket As New HTTPSecureSocket
 		  Dim ratesString As String
@@ -46,6 +65,10 @@ Protected Class Rates
 
 
 	#tag Property, Flags = &h0
+		BitcoinRate As Currency
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		GoldRate As Currency
 	#tag EndProperty
 
@@ -53,6 +76,9 @@ Protected Class Rates
 		SilverRate As Currency
 	#tag EndProperty
 
+
+	#tag Constant, Name = kBitcoinRatesURL, Type = String, Dynamic = False, Default = \"http://api.bitcoincharts.com/v1/weighted_prices.json", Scope = Private
+	#tag EndConstant
 
 	#tag Constant, Name = kGoldSilverRatesURL, Type = String, Dynamic = False, Default = \"https://query.yahooapis.com/v1/public/yql\?q\x3Dselect%20%2A%20from%20yahoo.finance.xchange%20where%20pair%20in%20%28%22XAUUSD%22%2C%20%22XAGUSD%22%29&format\x3Dxml&env\x3Dstore%3A%2F%2Fdatatables.org%2Falltableswithkeys", Scope = Private
 	#tag EndConstant
