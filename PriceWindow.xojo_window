@@ -529,7 +529,7 @@ Begin Window PriceWindow
       Visible         =   True
       Width           =   80
    End
-   Begin TextField DinarPrice1
+   Begin TextField DirhamPrice
       AcceptTabs      =   False
       Alignment       =   0
       AutoDeactivate  =   True
