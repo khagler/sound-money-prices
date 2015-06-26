@@ -646,10 +646,6 @@ End
 	#tag Event
 		Sub Activate()
 		  self.CurrentRates = New Rates
-		  
-		  self.GoldInDollars.Text = Str(CurrentRates.GoldRate)
-		  self.SilverInDollars.Text = Str(CurrentRates.SilverRate)
-		  self.BitcoinInDollars.Text = Str(CurrentRates.BitcoinRate)
 		End Sub
 	#tag EndEvent
 
