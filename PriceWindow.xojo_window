@@ -21,7 +21,7 @@ Begin Window PriceWindow
    MinHeight       =   64
    MinimizeButton  =   True
    MinWidth        =   64
-   Placement       =   0
+   Placement       =   2
    Resizeable      =   True
    Title           =   "Sound Money Prices"
    Visible         =   True
