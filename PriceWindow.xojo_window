@@ -299,7 +299,7 @@ Begin Window PriceWindow
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
-      Width           =   80
+      Width           =   100
    End
    Begin TextField SilverOunces
       AcceptTabs      =   False
@@ -341,7 +341,7 @@ Begin Window PriceWindow
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
-      Width           =   80
+      Width           =   100
    End
    Begin TextField Bitcoins
       AcceptTabs      =   False
@@ -383,7 +383,7 @@ Begin Window PriceWindow
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
-      Width           =   80
+      Width           =   100
    End
    Begin Label Label6
       AutoDeactivate  =   True
@@ -396,7 +396,7 @@ Begin Window PriceWindow
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   224
+      Left            =   244
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -430,7 +430,7 @@ Begin Window PriceWindow
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   224
+      Left            =   244
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -464,7 +464,7 @@ Begin Window PriceWindow
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   224
+      Left            =   244
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -504,7 +504,7 @@ Begin Window PriceWindow
       HelpTag         =   ""
       Index           =   -2147483648
       Italic          =   False
-      Left            =   314
+      Left            =   334
       LimitText       =   0
       LockBottom      =   False
       LockedInPosition=   False
@@ -527,7 +527,7 @@ Begin Window PriceWindow
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
-      Width           =   80
+      Width           =   100
    End
    Begin TextField DirhamPrice
       AcceptTabs      =   False
@@ -546,7 +546,7 @@ Begin Window PriceWindow
       HelpTag         =   ""
       Index           =   -2147483648
       Italic          =   False
-      Left            =   314
+      Left            =   334
       LimitText       =   0
       LockBottom      =   False
       LockedInPosition=   False
@@ -569,7 +569,7 @@ Begin Window PriceWindow
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
-      Width           =   80
+      Width           =   100
    End
    Begin Label Label9
       AutoDeactivate  =   True
@@ -582,7 +582,7 @@ Begin Window PriceWindow
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   406
+      Left            =   446
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -616,7 +616,7 @@ Begin Window PriceWindow
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   406
+      Left            =   446
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
