@@ -84,7 +84,7 @@ Begin Window PriceWindow
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
-      Mask            =   ""
+      Mask            =   "9999999999999999999999999.00"
       Password        =   False
       ReadOnly        =   False
       Scope           =   0
@@ -683,6 +683,11 @@ End
 		  self.DirhamPrice.Text = Str(XAG / self.kDirhamInOunces)
 		  self.Bitcoins.Text = Str(BTC)
 		End Sub
+	#tag EndEvent
+	#tag Event
+		Function KeyDown(Key As String) As Boolean
+		  
+		End Function
 	#tag EndEvent
 #tag EndEvents
 #tag ViewBehavior
