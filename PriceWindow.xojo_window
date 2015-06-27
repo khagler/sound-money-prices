@@ -669,11 +669,9 @@ End
 		Sub TextChange()
 		  // TODO: validate the entered price
 		  
-		  Dim v As Variant
 		  Dim fiat, XAU, XAG, BTC As Double
 		  
-		  v = me.Text
-		  fiat = v.DoubleValue
+		  fiat = me.Text.CDbl
 		  
 		  XAU = fiat / self.CurrentRates.GoldRate
 		  XAG = fiat / self.CurrentRates.SilverRate
