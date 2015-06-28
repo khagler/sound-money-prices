@@ -271,7 +271,7 @@ Begin Window PriceWindow
       DataField       =   ""
       DataSource      =   ""
       Enabled         =   True
-      Format          =   ""
+      Format          =   "##,###,###.####"
       Height          =   22
       HelpTag         =   ""
       Index           =   -2147483648
@@ -313,7 +313,7 @@ Begin Window PriceWindow
       DataField       =   ""
       DataSource      =   ""
       Enabled         =   True
-      Format          =   ""
+      Format          =   "##,###,###.####"
       Height          =   22
       HelpTag         =   ""
       Index           =   -2147483648
@@ -355,7 +355,7 @@ Begin Window PriceWindow
       DataField       =   ""
       DataSource      =   ""
       Enabled         =   True
-      Format          =   ""
+      Format          =   "##,###,###.########"
       Height          =   22
       HelpTag         =   ""
       Index           =   -2147483648
@@ -499,7 +499,7 @@ Begin Window PriceWindow
       DataField       =   ""
       DataSource      =   ""
       Enabled         =   True
-      Format          =   ""
+      Format          =   "##,###,###.##"
       Height          =   22
       HelpTag         =   ""
       Index           =   -2147483648
@@ -541,7 +541,7 @@ Begin Window PriceWindow
       DataField       =   ""
       DataSource      =   ""
       Enabled         =   True
-      Format          =   ""
+      Format          =   "##,###,###.##"
       Height          =   22
       HelpTag         =   ""
       Index           =   -2147483648
