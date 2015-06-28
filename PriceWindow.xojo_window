@@ -84,7 +84,7 @@ Begin Window PriceWindow
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
-      Mask            =   "9999999999999999999999999.00"
+      Mask            =   "9999999999999999999999999.99"
       Password        =   False
       ReadOnly        =   False
       Scope           =   0
