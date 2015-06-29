@@ -102,40 +102,6 @@ Begin Window PriceWindow
       Visible         =   True
       Width           =   140
    End
-   Begin Label Label2
-      AutoDeactivate  =   True
-      Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
-      Enabled         =   True
-      Height          =   20
-      HelpTag         =   ""
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   314
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Multiline       =   False
-      Scope           =   0
-      Selectable      =   False
-      TabIndex        =   2
-      TabPanelIndex   =   0
-      Text            =   "US Dollars"
-      TextAlign       =   0
-      TextColor       =   &c00000000
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
-      Top             =   19
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   72
-   End
    Begin Separator Separator1
       AutoDeactivate  =   True
       Enabled         =   True
@@ -625,6 +591,37 @@ Begin Window PriceWindow
          Visible         =   True
          Width           =   100
       End
+   End
+   Begin PopupMenu FiatCurrencyPopup
+      AutoDeactivate  =   True
+      Bold            =   False
+      DataField       =   ""
+      DataSource      =   ""
+      Enabled         =   True
+      Height          =   20
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      InitialValue    =   "Argentine Pesos\nAustralian Dollars\nBrazilian Reals\nBritish Pounds\nCanadian Dollars\nChinese Yuans\nCzech Korunas\nDanish Krones\nEuros\nHong Kong Dollars\nIndian Rupees\nIndonesian Rupiahs\nIsraeli Shekels\nJapanese Yen\nMexican Pesos\nNew Zealand Dollars\nNorwegian Krones\nPolish Zlotys\nRussian Rubles\nSingapore Dollars\nSouth African Rands\nSwedish Kronas\nSwiss Francs\nThai Bahts\nUS Dollars\n"
+      Italic          =   False
+      Left            =   314
+      ListIndex       =   0
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Scope           =   0
+      TabIndex        =   20
+      TabPanelIndex   =   0
+      TabStop         =   True
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   18
+      Underline       =   False
+      Visible         =   True
+      Width           =   166
    End
 End
 #tag EndWindow
