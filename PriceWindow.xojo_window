@@ -674,6 +674,24 @@ End
 		End Function
 	#tag EndEvent
 #tag EndEvents
+#tag Events FiatCurrencyPopup
+	#tag Event
+		Sub Open()
+		  // The variant keys aren't very useful, so we need to turn them into an array of strings
+		  Dim codes() As String
+		  For Each value As Variant in App.CurrencyCodes.Keys()
+		    codes.Append value
+		  Next
+		  codes.Sort
+		  For i As Integer = 0 To codes.Ubound
+		    me.AddRow(App.CurrencyCodes.Value(codes(i)))
+		    me.RowTag(i) = codes(i)
+		  Next
+		  
+		  me.ListIndex = 0
+		End Sub
+	#tag EndEvent
+#tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
 		Name="BackColor"
