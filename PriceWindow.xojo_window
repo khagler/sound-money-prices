@@ -629,10 +629,23 @@ End
 #tag WindowCode
 	#tag Event
 		Sub Activate()
+		  // We need to convert the currency code JSON string in the kCurrencyCodes constant into a dictionary for
+		  // the CurrencyCodes property.
+		  self.CurrencyCodes = New Dictionary
+		  Dim currenciesJSON As New JSONItem(self.kCurrencyCodes)
+		  For Each code As String In currenciesJSON.Names()
+		    self.CurrencyCodes.Value(code) = currenciesJSON.Value(code)
+		  Next
+		  
+		  // Next we get the exchane rates
 		  self.CurrentRates = New Rates
 		End Sub
 	#tag EndEvent
 
+
+	#tag Property, Flags = &h21
+		Private CurrencyCodes As Dictionary
+	#tag EndProperty
 
 	#tag Property, Flags = &h21
 		Private CurrentRates As Rates
