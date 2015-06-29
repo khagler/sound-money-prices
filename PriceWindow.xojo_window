@@ -628,9 +628,7 @@ End
 
 #tag WindowCode
 	#tag Event
-		Sub Activate()
-		  
-		  // Next we get the exchane rates
+		Sub Open()
 		  self.CurrentRates = New Rates
 		End Sub
 	#tag EndEvent
