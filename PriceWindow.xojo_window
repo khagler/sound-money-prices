@@ -25,7 +25,7 @@ Begin Window PriceWindow
    Resizeable      =   True
    Title           =   "Sound Money Prices"
    Visible         =   True
-   Width           =   449
+   Width           =   500
    Begin Label Label1
       AutoDeactivate  =   True
       Bold            =   False
@@ -121,7 +121,7 @@ Begin Window PriceWindow
       TabStop         =   True
       Top             =   52
       Visible         =   True
-      Width           =   600
+      Width           =   500
    End
    Begin GroupBox GroupBox1
       AutoDeactivate  =   True
@@ -149,7 +149,7 @@ Begin Window PriceWindow
       Top             =   68
       Underline       =   False
       Visible         =   True
-      Width           =   409
+      Width           =   460
       Begin Label Label9
          AutoDeactivate  =   True
          Bold            =   False
@@ -161,7 +161,7 @@ Begin Window PriceWindow
          Index           =   -2147483648
          InitialParent   =   "GroupBox1"
          Italic          =   False
-         Left            =   354
+         Left            =   404
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   True
@@ -202,7 +202,7 @@ Begin Window PriceWindow
          Index           =   -2147483648
          InitialParent   =   "GroupBox1"
          Italic          =   False
-         Left            =   242
+         Left            =   267
          LimitText       =   0
          LockBottom      =   False
          LockedInPosition=   False
@@ -225,7 +225,7 @@ Begin Window PriceWindow
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
-         Width           =   100
+         Width           =   125
       End
       Begin Label Label6
          AutoDeactivate  =   True
@@ -238,7 +238,7 @@ Begin Window PriceWindow
          Index           =   -2147483648
          InitialParent   =   "GroupBox1"
          Italic          =   False
-         Left            =   152
+         Left            =   177
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   True
@@ -302,7 +302,7 @@ Begin Window PriceWindow
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
-         Width           =   100
+         Width           =   125
       End
    End
    Begin GroupBox GroupBox2
@@ -331,7 +331,7 @@ Begin Window PriceWindow
       Top             =   160
       Underline       =   False
       Visible         =   True
-      Width           =   409
+      Width           =   460
       Begin TextField SilverOunces
          AcceptTabs      =   False
          Alignment       =   0
@@ -373,7 +373,7 @@ Begin Window PriceWindow
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
-         Width           =   100
+         Width           =   125
       End
       Begin Label Label7
          AutoDeactivate  =   True
@@ -386,7 +386,7 @@ Begin Window PriceWindow
          Index           =   -2147483648
          InitialParent   =   "GroupBox2"
          Italic          =   False
-         Left            =   152
+         Left            =   177
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   True
@@ -427,7 +427,7 @@ Begin Window PriceWindow
          Index           =   -2147483648
          InitialParent   =   "GroupBox2"
          Italic          =   False
-         Left            =   242
+         Left            =   267
          LimitText       =   0
          LockBottom      =   False
          LockedInPosition=   False
@@ -450,7 +450,7 @@ Begin Window PriceWindow
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
-         Width           =   100
+         Width           =   125
       End
       Begin Label Label10
          AutoDeactivate  =   True
@@ -463,7 +463,7 @@ Begin Window PriceWindow
          Index           =   -2147483648
          InitialParent   =   "GroupBox2"
          Italic          =   False
-         Left            =   354
+         Left            =   404
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   True
@@ -513,7 +513,7 @@ Begin Window PriceWindow
       Top             =   252
       Underline       =   False
       Visible         =   True
-      Width           =   409
+      Width           =   460
       Begin Label Label8
          AutoDeactivate  =   True
          Bold            =   False
@@ -525,7 +525,7 @@ Begin Window PriceWindow
          Index           =   -2147483648
          InitialParent   =   "GroupBox3"
          Italic          =   False
-         Left            =   152
+         Left            =   177
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   True
@@ -589,7 +589,7 @@ Begin Window PriceWindow
          Underline       =   False
          UseFocusRing    =   True
          Visible         =   True
-         Width           =   100
+         Width           =   125
       End
    End
    Begin PopupMenu FiatCurrencyPopup
