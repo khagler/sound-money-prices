@@ -629,7 +629,7 @@ End
 #tag WindowCode
 	#tag Event
 		Sub Open()
-		  self.CurrentRates = New Rates
+		  self.CurrentRates = New Rates(self.FiatCurrencyPopup.RowTag(self.FiatCurrencyPopup.ListIndex))
 		End Sub
 	#tag EndEvent
 
