@@ -668,11 +668,6 @@ End
 		  self.Bitcoins.Text = Str(BTC)
 		End Sub
 	#tag EndEvent
-	#tag Event
-		Function KeyDown(Key As String) As Boolean
-		  
-		End Function
-	#tag EndEvent
 #tag EndEvents
 #tag Events FiatCurrencyPopup
 	#tag Event
