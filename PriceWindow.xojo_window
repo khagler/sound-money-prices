@@ -634,6 +634,23 @@ End
 	#tag EndEvent
 
 
+	#tag Method, Flags = &h21
+		Private Sub CalculatePrices(fiat As Double)
+		  Dim XAU, XAG, BTC As Double
+		  
+		  XAU = fiat / self.CurrentRates.GoldRate
+		  XAG = fiat / self.CurrentRates.SilverRate
+		  BTC = fiat / self.CurrentRates.BitcoinRate
+		  
+		  self.GoldOunces.Text = Str(XAU)
+		  self.DinarPrice.Text = Str(XAU / self.kDinarInOUnces)
+		  self.SilverOunces.Text = Str(XAG)
+		  self.DirhamPrice.Text = Str(XAG / self.kDirhamInOunces)
+		  self.Bitcoins.Text = Str(BTC)
+		End Sub
+	#tag EndMethod
+
+
 	#tag Property, Flags = &h21
 		Private CurrentRates As Rates
 	#tag EndProperty
@@ -651,21 +668,7 @@ End
 #tag Events FiatPrice
 	#tag Event
 		Sub TextChange()
-		  // TODO: validate the entered price
-		  
-		  Dim fiat, XAU, XAG, BTC As Double
-		  
-		  fiat = me.Text.CDbl
-		  
-		  XAU = fiat / self.CurrentRates.GoldRate
-		  XAG = fiat / self.CurrentRates.SilverRate
-		  BTC = fiat / self.CurrentRates.BitcoinRate
-		  
-		  self.GoldOunces.Text = Str(XAU)
-		  self.DinarPrice.Text = Str(XAU / self.kDinarInOUnces)
-		  self.SilverOunces.Text = Str(XAG)
-		  self.DirhamPrice.Text = Str(XAG / self.kDirhamInOunces)
-		  self.Bitcoins.Text = Str(BTC)
+		  self.CalculatePrices(me.Text.CDbl)
 		End Sub
 	#tag EndEvent
 #tag EndEvents
