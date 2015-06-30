@@ -1,7 +1,8 @@
 #tag Class
 Protected Class Rates
 	#tag Method, Flags = &h0
-		Sub Constructor()
+		Sub Constructor(currencyCode As String)
+		  self.CurrencyCode = currencyCode
 		  self.GetPreciousMetalRates
 		  self.GetBitcoinRates
 		End Sub
@@ -22,7 +23,7 @@ Protected Class Rates
 		    MsgBox("JSON Exception: " + e.Message)
 		  End Try
 		  
-		  self.BitcoinRate = ratesJSON.Child("USD").Value("24h")
+		  self.BitcoinRate = ratesJSON.Child(self.CurrencyCode).Value("24h")
 		  
 		End Sub
 	#tag EndMethod
@@ -43,8 +44,8 @@ Protected Class Rates
 		    MsgBox("XML error: " + e.Message)
 		  End Try
 		  
-		  self.GoldRate = self.GetRateFromXML(ratesXML, "XAUUSD")
-		  self.SilverRate = self.GetRateFromXML(ratesXML, "XAGUSD")
+		  self.GoldRate = self.GetRateFromXML(ratesXML, "XAU" + self.CurrencyCode)
+		  self.SilverRate = self.GetRateFromXML(ratesXML, "XAG" + self.CurrencyCode)
 		  
 		End Sub
 	#tag EndMethod
@@ -66,6 +67,10 @@ Protected Class Rates
 
 	#tag Property, Flags = &h0
 		BitcoinRate As Currency
+	#tag EndProperty
+
+	#tag Property, Flags = &h21
+		Private CurrencyCode As String = "USD"
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
