@@ -15,6 +15,24 @@ Inherits Application
 	#tag EndEvent
 
 
+	#tag Method, Flags = &h0
+		Sub PopulateCurrencyPopup(popup As PopupMenu)
+		  // The variant keys aren't very useful, so we need to turn them into an array of strings
+		  Dim codes() As String
+		  For Each value As Variant in self.CurrencyCodes.Keys()
+		    codes.Append value
+		  Next
+		  codes.Sort
+		  For i As Integer = 0 To codes.Ubound
+		    popup.AddRow(self.CurrencyCodes.Value(codes(i)))
+		    popup.RowTag(i) = codes(i)
+		  Next
+		  
+		  me.ListIndex = 0
+		End Sub
+	#tag EndMethod
+
+
 	#tag Property, Flags = &h0
 		CurrencyCodes As Dictionary
 	#tag EndProperty
