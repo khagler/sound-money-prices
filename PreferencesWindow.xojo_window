@@ -97,3 +97,10 @@ End
 #tag WindowCode
 #tag EndWindowCode
 
+#tag Events DefaultCurrencyPopupMenu
+	#tag Event
+		Sub Open()
+		  App.PopulateCurrencyPopup(me)
+		End Sub
+	#tag EndEvent
+#tag EndEvents
