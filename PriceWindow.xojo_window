@@ -680,7 +680,7 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub Change()
-		  self.CurrentRates = New Rates(self.FiatCurrencyPopup.RowTag(self.FiatCurrencyPopup.ListIndex))
+		  self.CurrentRates = New Rates(me.RowTag(me.ListIndex))
 		  self.CalculatePrices(self.FiatPrice.Text.CDbl)
 		End Sub
 	#tag EndEvent
