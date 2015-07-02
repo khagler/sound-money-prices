@@ -3,6 +3,11 @@ Protected Class App
 Inherits Application
 	#tag Event
 		Sub Open()
+		  // Enable the Tools menu if we're not running on a Mac.
+		  #If TargetMacOS <> True
+		    ToolsMenu.Enabled = True
+		  #Endif
+		  
 		  // We need to convert the currency code JSON string in the kCurrencyCodes constant into a dictionary for
 		  // the CurrencyCodes property.
 		  self.CurrencyCodes = New Dictionary

@@ -99,7 +99,7 @@ Begin Menu MainMenuBar
       Text = "Tools"
       Index = -2147483648
       AutoEnable = True
-      Visible = True
+      Visible = False
       Begin PrefsMenuItem ToolsPrefs
          SpecialMenu = 0
          Text = "#App.kPreferences"
