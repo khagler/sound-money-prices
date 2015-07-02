@@ -23,8 +23,12 @@ Protected Class Rates
 		    MsgBox("JSON Exception: " + e.Message)
 		  End Try
 		  
-		  self.BitcoinRate = ratesJSON.Child(self.CurrencyCode).Value("24h")
-		  
+		  Try
+		    self.BitcoinRate = ratesJSON.Child(self.CurrencyCode).Value("24h")
+		  Catch err As KeyNotFoundException
+		    // If there's no 24h rate, fall back to the 7d rate
+		    self.BitcoinRate = ratesJSON.Child(self.CurrencyCode).Value("7d")
+		  End Try
 		End Sub
 	#tag EndMethod
 
