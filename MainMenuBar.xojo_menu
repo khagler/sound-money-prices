@@ -94,5 +94,19 @@ Begin Menu MainMenuBar
          Visible = True
       End
    End
+   Begin MenuItem ToolsMenu
+      SpecialMenu = 0
+      Text = "Tools"
+      Index = -2147483648
+      AutoEnable = True
+      Visible = True
+      Begin PrefsMenuItem ToolsPrefs
+         SpecialMenu = 0
+         Text = "#App.kPreferences"
+         Index = -2147483648
+         AutoEnable = True
+         Visible = True
+      End
+   End
 End
 #tag EndMenu

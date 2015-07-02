@@ -15,6 +15,16 @@ Inherits Application
 	#tag EndEvent
 
 
+	#tag MenuHandler
+		Function ToolsPrefs() As Boolean Handles ToolsPrefs.Action
+			PreferencesWindow.Show
+			
+			Return True
+			
+		End Function
+	#tag EndMenuHandler
+
+
 	#tag Method, Flags = &h0
 		Sub PopulateCurrencyPopup(popup As PopupMenu)
 		  // The variant keys aren't very useful, so we need to turn them into an array of strings
@@ -53,6 +63,10 @@ Inherits Application
 	#tag Constant, Name = kFileQuitShortcut, Type = String, Dynamic = False, Default = \"", Scope = Public
 		#Tag Instance, Platform = Mac OS, Language = Default, Definition  = \"Cmd+Q"
 		#Tag Instance, Platform = Linux, Language = Default, Definition  = \"Ctrl+Q"
+	#tag EndConstant
+
+	#tag Constant, Name = kPreferences, Type = String, Dynamic = False, Default = \"&Options\xE2\x80\xA6", Scope = Public
+		#Tag Instance, Platform = Mac OS, Language = Default, Definition  = \"Preferences\xE2\x80\xA6"
 	#tag EndConstant
 
 
