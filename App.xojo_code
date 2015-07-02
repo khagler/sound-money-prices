@@ -3,6 +3,9 @@ Protected Class App
 Inherits Application
 	#tag Event
 		Sub Open()
+		  // Instantiate prefs
+		  self.Prefs = New TTsSmartPreferences("Sound Money Prices")
+		  
 		  // Enable the Tools menu if we're not running on a Mac.
 		  #If TargetMacOS <> True
 		    ToolsMenu.Enabled = True
@@ -50,6 +53,10 @@ Inherits Application
 
 	#tag Property, Flags = &h0
 		CurrencyCodes As Dictionary
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		Prefs As TTsSmartPreferences
 	#tag EndProperty
 
 
