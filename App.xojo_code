@@ -28,7 +28,7 @@ Inherits Application
 		    popup.RowTag(i) = codes(i)
 		  Next
 		  
-		  me.ListIndex = 0
+		  popup.ListIndex = 0
 		End Sub
 	#tag EndMethod
 
