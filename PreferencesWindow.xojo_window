@@ -103,4 +103,11 @@ End
 		  App.PopulateCurrencyPopup(me)
 		End Sub
 	#tag EndEvent
+	#tag Event
+		Sub Change()
+		  App.Prefs.Value("Currency") = me.RowTag(me.ListIndex)
+		  MsgBox "The new pref value is: " + App.Prefs.Value("Currency", "unset")
+		  App.Prefs.Sync
+		End Sub
+	#tag EndEvent
 #tag EndEvents
