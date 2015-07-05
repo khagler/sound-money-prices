@@ -105,7 +105,12 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub Change()
-		  App.Prefs.Value("Currency") = me.RowTag(me.ListIndex)
+		  // macoslib relies on a Cocoa function behind the scenes to covert strings into CFStrings, and it's
+		  // expecting the string to have an encoding. This was the cause of the failure to set bug, as the strings
+		  // in the RowTags didn't have encodings and macoslib wasn't handling the missing encoding
+		  // properly. To be safe, I'm passing the value of the RowTag as a string with an assigned encoding
+		  // now instead of just passing it along as a Variant.
+		  App.Prefs.Value("Currency") = me.RowTag(me.ListIndex).StringValue.DefineEncoding(Encodings.ASCII)
 		  App.Prefs.Sync
 		End Sub
 	#tag EndEvent
