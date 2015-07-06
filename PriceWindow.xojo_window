@@ -196,7 +196,7 @@ Begin Window PriceWindow
          DataField       =   ""
          DataSource      =   ""
          Enabled         =   True
-         Format          =   "##,###,###.##"
+         Format          =   ""
          Height          =   22
          HelpTag         =   ""
          Index           =   -2147483648
@@ -273,7 +273,7 @@ Begin Window PriceWindow
          DataField       =   ""
          DataSource      =   ""
          Enabled         =   True
-         Format          =   "##,###,###.####"
+         Format          =   ""
          Height          =   22
          HelpTag         =   ""
          Index           =   -2147483648
@@ -344,7 +344,7 @@ Begin Window PriceWindow
          DataField       =   ""
          DataSource      =   ""
          Enabled         =   True
-         Format          =   "##,###,###.####"
+         Format          =   ""
          Height          =   22
          HelpTag         =   ""
          Index           =   -2147483648
@@ -421,7 +421,7 @@ Begin Window PriceWindow
          DataField       =   ""
          DataSource      =   ""
          Enabled         =   True
-         Format          =   "##,###,###.##"
+         Format          =   ""
          Height          =   22
          HelpTag         =   ""
          Index           =   -2147483648
@@ -560,7 +560,7 @@ Begin Window PriceWindow
          DataField       =   ""
          DataSource      =   ""
          Enabled         =   True
-         Format          =   "##,###,###.########"
+         Format          =   ""
          Height          =   22
          HelpTag         =   ""
          Index           =   -2147483648
@@ -638,15 +638,25 @@ End
 		Private Sub CalculatePrices(fiat As Double)
 		  Dim XAU, XAG, BTC As Double
 		  
-		  XAU = fiat / self.CurrentRates.GoldRate
-		  XAG = fiat / self.CurrentRates.SilverRate
-		  BTC = fiat / self.CurrentRates.BitcoinRate
-		  
-		  self.GoldOunces.Text = Str(XAU)
-		  self.DinarPrice.Text = Str(XAU / self.kDinarInOUnces)
-		  self.SilverOunces.Text = Str(XAG)
-		  self.DirhamPrice.Text = Str(XAG / self.kDirhamInOunces)
-		  self.Bitcoins.Text = Str(BTC)
+		  // If the fiat price is 0 or empty, blank out all the sound money prices so we don't have
+		  // a bunch of edit fields with "0." in them.
+		  If fiat = 0 Then
+		    self.GoldOunces.Text = ""
+		    self.DinarPrice.Text = ""
+		    self.SilverOunces.Text = ""
+		    self.DirhamPrice.Text = ""
+		    self.Bitcoins.Text = ""
+		  Else
+		    XAU = fiat / self.CurrentRates.GoldRate
+		    XAG = fiat / self.CurrentRates.SilverRate
+		    BTC = fiat / self.CurrentRates.BitcoinRate
+		    
+		    self.GoldOunces.Text = Format(XAU, "##,###,###.####")
+		    self.DinarPrice.Text = Format(XAU / self.kDinarInOUnces, "##,###,###.##")
+		    self.SilverOunces.Text = Format(XAG, "##,###,###.####")
+		    self.DirhamPrice.Text = Format(XAG / self.kDirhamInOunces, "##,###,###.##")
+		    self.Bitcoins.Text = Format(BTC, "##,###,###.########")
+		  End If
 		End Sub
 	#tag EndMethod
 
