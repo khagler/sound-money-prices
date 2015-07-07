@@ -21,6 +21,15 @@ Inherits Application
 
 
 	#tag MenuHandler
+		Function HelpAboutSoundMoneyPrices() As Boolean Handles HelpAboutSoundMoneyPrices.Action
+			AboutWindow.Show
+			
+			Return True
+			
+		End Function
+	#tag EndMenuHandler
+
+	#tag MenuHandler
 		Function ToolsPrefs() As Boolean Handles ToolsPrefs.Action
 			PreferencesWindow.Show
 			

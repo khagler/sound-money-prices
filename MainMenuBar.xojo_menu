@@ -108,5 +108,19 @@ Begin Menu MainMenuBar
          Visible = True
       End
    End
+   Begin MenuItem HelpMenu
+      SpecialMenu = 0
+      Text = "Help"
+      Index = -2147483648
+      AutoEnable = True
+      Visible = True
+      Begin AppleMenuItem HelpAboutSoundMoneyPrices
+         SpecialMenu = 0
+         Text = "About Sound Money Prices"
+         Index = -2147483648
+         AutoEnable = True
+         Visible = True
+      End
+   End
 End
 #tag EndMenu
