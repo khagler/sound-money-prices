@@ -95,6 +95,16 @@ End
 #tag EndWindow
 
 #tag WindowCode
+	#tag MenuHandler
+		Function FileCloseWindow() As Boolean Handles FileCloseWindow.Action
+			self.Close
+			
+			Return True
+			
+		End Function
+	#tag EndMenuHandler
+
+
 #tag EndWindowCode
 
 #tag Events DefaultCurrencyPopupMenu
