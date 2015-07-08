@@ -2,12 +2,32 @@
 Protected Class Rates
 	#tag Method, Flags = &h0
 		Sub Constructor(currencyCode As String)
+		  Dim rateSocket As New HTTPSecureSocket
+		  Dim ratesString As String
+		  
 		  If self.BitcoinRatesJSON = Nil Then
-		    self.BitcoinRatesJSON = New JSONItem
+		    // TODO: Make this asynchronous
+		    rateSocket.Yield = True
+		    ratesString = rateSocket.Get(self.kBitcoinRatesURL, 0)
+		    Try
+		      self.BitcoinRatesJSON = New JSONItem(ratesString)
+		    Catch e As JSONException
+		      MsgBox("JSON Exception: " + e.Message)
+		    End Try
 		  End If
 		  
 		  if self.PMRatesXML = Nil Then
 		    self.PMRatesXML = New XmlDocument
+		    
+		    // TODO: Make this asynchronous
+		    rateSocket.Yield = True
+		    ratesString = rateSocket.Get(self.kGoldSilverRatesURL, 0)
+		    
+		    Try
+		      self.PMRatesXML.LoadXml(ratesString)
+		    Catch e As XmlException
+		      MsgBox("XML error: " + e.Message)
+		    End Try
 		  End If
 		  
 		  self.CurrencyCode = currencyCode
@@ -18,43 +38,17 @@ Protected Class Rates
 
 	#tag Method, Flags = &h21
 		Private Sub GetBitcoinRates()
-		  Dim rateSocket As New HTTPSecureSocket
-		  Dim ratesJSON As JSONItem
-		  Dim JSONString As String
-		  
-		  // TODO: Make this asynchronous
-		  rateSocket.Yield = True
-		  JSONString = rateSocket.Get(self.kBitcoinRatesURL, 0)
 		  Try
-		    ratesJSON = New JSONItem(JSONString)
-		  Catch e As JSONException
-		    MsgBox("JSON Exception: " + e.Message)
-		  End Try
-		  
-		  Try
-		    self.BitcoinRate = ratesJSON.Child(self.CurrencyCode).Value("24h")
+		    self.BitcoinRate = self.BitcoinRatesJSON.Child(self.CurrencyCode).Value("24h")
 		  Catch err As KeyNotFoundException
 		    // If there's no 24h rate, fall back to the 7d rate
-		    self.BitcoinRate = ratesJSON.Child(self.CurrencyCode).Value("7d")
+		    self.BitcoinRate = self.BitcoinRatesJSON.Child(self.CurrencyCode).Value("7d")
 		  End Try
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Sub GetPreciousMetalRates()
-		  Dim rateSocket As New HTTPSecureSocket
-		  Dim ratesString As String
-		  
-		  // TODO: Make this asynchronous
-		  rateSocket.Yield = True
-		  ratesString = rateSocket.Get(self.kGoldSilverRatesURL, 0)
-		  
-		  Try
-		    self.PMRatesXML.LoadXml(ratesString)
-		  Catch e As XmlException
-		    MsgBox("XML error: " + e.Message)
-		  End Try
-		  
 		  self.GoldRate = self.GetRateFromXML(self.PMRatesXML, "XAU" + self.CurrencyCode)
 		  self.SilverRate = self.GetRateFromXML(self.PMRatesXML, "XAG" + self.CurrencyCode)
 		  
