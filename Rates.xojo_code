@@ -2,6 +2,14 @@
 Protected Class Rates
 	#tag Method, Flags = &h0
 		Sub Constructor(currencyCode As String)
+		  If self.BitcoinRatesJSON = Nil Then
+		    self.BitcoinRatesJSON = New JSONItem
+		  End If
+		  
+		  if self.PMRatesXML = Nil Then
+		    self.PMRatesXML = New XmlDocument
+		  End If
+		  
 		  self.CurrencyCode = currencyCode
 		  self.GetPreciousMetalRates
 		  self.GetBitcoinRates
@@ -34,7 +42,6 @@ Protected Class Rates
 
 	#tag Method, Flags = &h21
 		Private Sub GetPreciousMetalRates()
-		  Dim ratesXML As New XmlDocument
 		  Dim rateSocket As New HTTPSecureSocket
 		  Dim ratesString As String
 		  
@@ -43,13 +50,13 @@ Protected Class Rates
 		  ratesString = rateSocket.Get(self.kGoldSilverRatesURL, 0)
 		  
 		  Try
-		    ratesXML.LoadXml(ratesString)
+		    self.PMRatesXML.LoadXml(ratesString)
 		  Catch e As XmlException
 		    MsgBox("XML error: " + e.Message)
 		  End Try
 		  
-		  self.GoldRate = self.GetRateFromXML(ratesXML, "XAU" + self.CurrencyCode)
-		  self.SilverRate = self.GetRateFromXML(ratesXML, "XAG" + self.CurrencyCode)
+		  self.GoldRate = self.GetRateFromXML(self.PMRatesXML, "XAU" + self.CurrencyCode)
+		  self.SilverRate = self.GetRateFromXML(self.PMRatesXML, "XAG" + self.CurrencyCode)
 		  
 		End Sub
 	#tag EndMethod
@@ -74,11 +81,19 @@ Protected Class Rates
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
+		Private Shared BitcoinRatesJSON As JSONItem
+	#tag EndProperty
+
+	#tag Property, Flags = &h21
 		Private CurrencyCode As String = "USD"
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
 		GoldRate As Currency
+	#tag EndProperty
+
+	#tag Property, Flags = &h21
+		Private Shared PMRatesXML As XmlDocument
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
