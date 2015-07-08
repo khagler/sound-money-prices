@@ -629,13 +629,16 @@ End
 #tag WindowCode
 	#tag Event
 		Sub Open()
-		  self.CurrentRates = New Rates(self.FiatCurrencyPopup.RowTag(self.FiatCurrencyPopup.ListIndex))
+		  self.CurrentRates = New Dictionary
+		  For Each currencyCode As Variant in App.CurrencyCodes.Keys
+		    self.CurrentRates.Value(currencyCode) = New Rates(currencyCode)
+		  Next
 		End Sub
 	#tag EndEvent
 
 
 	#tag Method, Flags = &h21
-		Private Sub CalculatePrices(fiat As Double)
+		Private Sub CalculatePrices(fiat As Double, currencyCode As String)
 		  Dim XAU, XAG, BTC As Double
 		  
 		  // If the fiat price is 0 or empty, blank out all the sound money prices so we don't have
@@ -647,9 +650,11 @@ End
 		    self.DirhamPrice.Text = ""
 		    self.Bitcoins.Text = ""
 		  Else
-		    XAU = fiat / self.CurrentRates.GoldRate
-		    XAG = fiat / self.CurrentRates.SilverRate
-		    BTC = fiat / self.CurrentRates.BitcoinRate
+		    Dim currentRate As Rates
+		    currentRate = self.CurrentRates.Value(currencyCode)
+		    XAU = fiat / currentRate.GoldRate
+		    XAG = fiat / currentRate.SilverRate
+		    BTC = fiat / currentRate.BitcoinRate
 		    
 		    self.GoldOunces.Text = Format(XAU, "##,###,###.####")
 		    self.DinarPrice.Text = Format(XAU / self.kDinarInOUnces, "##,###,###.##")
@@ -662,7 +667,7 @@ End
 
 
 	#tag Property, Flags = &h21
-		Private CurrentRates As Rates
+		Private CurrentRates As Dictionary
 	#tag EndProperty
 
 
@@ -678,7 +683,7 @@ End
 #tag Events FiatPrice
 	#tag Event
 		Sub TextChange()
-		  self.CalculatePrices(me.Text.CDbl)
+		  self.CalculatePrices(me.Text.CDbl, self.FiatCurrencyPopup.RowTag(self.FiatCurrencyPopup.ListIndex))
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -690,8 +695,7 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub Change()
-		  self.CurrentRates = New Rates(me.RowTag(me.ListIndex))
-		  self.CalculatePrices(self.FiatPrice.Text.CDbl)
+		  self.CalculatePrices(self.FiatPrice.Text.CDbl, me.RowTag(me.ListIndex))
 		End Sub
 	#tag EndEvent
 #tag EndEvents
