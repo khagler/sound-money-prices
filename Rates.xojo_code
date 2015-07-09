@@ -80,8 +80,8 @@ Protected Class Rates
 		BitcoinRate As Currency
 	#tag EndProperty
 
-	#tag Property, Flags = &h21
-		Private Shared BitcoinRatesJSON As JSONItem
+	#tag Property, Flags = &h0
+		Shared BitcoinRatesJSON As JSONItem
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
@@ -92,8 +92,8 @@ Protected Class Rates
 		GoldRate As Currency
 	#tag EndProperty
 
-	#tag Property, Flags = &h21
-		Private Shared PMRatesXML As XmlDocument
+	#tag Property, Flags = &h0
+		Shared PMRatesXML As XmlDocument
 	#tag EndProperty
 
 	#tag Property, Flags = &h0

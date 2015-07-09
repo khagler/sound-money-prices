@@ -628,6 +628,25 @@ End
 
 #tag WindowCode
 	#tag Event
+		Sub Close()
+		  // We want to save the current rates in case the next time we run there's a
+		  // network problem that interferes with retrieving the rates. We'll save them in
+		  // a dictionary with the date (so we can display the age of the rates if we need
+		  // to use them) and the contents of the BitcoinRatesJSON and PMRatesXML
+		  // shared properties. We're using the shared properties instead of the
+		  // CurrentRates array because it's easier to convert JSON and XML to and
+		  // from a string than it is to serialize and deserialize the Rates objects.
+		  Dim savedRates As New Dictionary
+		  Dim currentDate As New Date
+		  savedRates.Value("RatesDate") = currentDate
+		  savedRates.Value("BitcoinRates") = Rates.BitcoinRatesJSON.ToString
+		  savedRates.Value("PMRates") = Rates.PMRatesXML.ToString
+		  App.Prefs.Value("LastRates") = savedRates
+		  App.Prefs.Sync
+		End Sub
+	#tag EndEvent
+
+	#tag Event
 		Sub Open()
 		  self.CurrentRates = New Dictionary
 		  For Each currencyCode As Variant in App.CurrencyCodes.Keys
