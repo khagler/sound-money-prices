@@ -42,7 +42,13 @@ Protected Class Rates
 		    self.BitcoinRate = self.BitcoinRatesJSON.Child(self.CurrencyCode).Value("24h")
 		  Catch err As KeyNotFoundException
 		    // If there's no 24h rate, fall back to the 7d rate
-		    self.BitcoinRate = self.BitcoinRatesJSON.Child(self.CurrencyCode).Value("7d")
+		    Try
+		      self.BitcoinRate = self.BitcoinRatesJSON.Child(self.CurrencyCode).Value("7d")
+		    Catch weekerr As KeyNotFoundException
+		      // There's no 7d rate either, so try the 30d rate
+		      // TODO: Add sensible fallback in case there's no rate at all
+		      self.BitcoinRate = self.BitcoinRatesJSON.Child(self.CurrencyCode).Value("30d")
+		    End Try
 		  End Try
 		End Sub
 	#tag EndMethod
