@@ -13,7 +13,7 @@ Protected Class Rates
 		  If self.BitcoinRatesJSON = Nil Then
 		    // TODO: Make this asynchronous
 		    rateSocket.Yield = True
-		    ratesString = rateSocket.Get(self.kBitcoinRatesURL, 0)
+		    ratesString = rateSocket.Get(self.kBitcoinRatesURL, 5)
 		    If rateSocket.ErrorCode <> 0 And savedRates <> Nil Then
 		      // There was an error when retrieving the bitcoin rates, so use the old ones
 		      // from the preferences if possible
@@ -33,7 +33,7 @@ Protected Class Rates
 		    
 		    // TODO: Make this asynchronous
 		    rateSocket.Yield = True
-		    ratesString = rateSocket.Get(self.kGoldSilverRatesURL, 0)
+		    ratesString = rateSocket.Get(self.kGoldSilverRatesURL, 5)
 		    If rateSocket.ErrorCode <> 0 And savedRates <> Nil Then
 		      // There was an error retrieving the precious metal rates, so use the old rates
 		      // if possible
