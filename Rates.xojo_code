@@ -4,16 +4,28 @@ Protected Class Rates
 		Sub Constructor(currencyCode As String)
 		  Dim rateSocket As New HTTPSecureSocket
 		  Dim ratesString As String
+		  Dim savedRates As New Dictionary
+		  Dim oldRatesMessage As String = ""
+		  
+		  // Get the saved rates from the prefs in case we can't get new rates
+		  savedRates = App.Prefs.Value("LastRates", Nil)
 		  
 		  If self.BitcoinRatesJSON = Nil Then
 		    // TODO: Make this asynchronous
 		    rateSocket.Yield = True
 		    ratesString = rateSocket.Get(self.kBitcoinRatesURL, 0)
+		    If rateSocket.ErrorCode <> 0 And savedRates <> Nil Then
+		      // There was an error when retrieving the bitcoin rates, so use the old ones
+		      // from the preferences if possible
+		      ratesString = savedRates.Value("BitcoinRates")
+		      oldRatesMessage = oldRatesMessage + "Bitcoin"
+		    End If
 		    Try
 		      self.BitcoinRatesJSON = New JSONItem(ratesString)
 		    Catch e As JSONException
 		      MsgBox("JSON Exception: " + e.Message)
 		    End Try
+		    
 		  End If
 		  
 		  if self.PMRatesXML = Nil Then
@@ -22,12 +34,26 @@ Protected Class Rates
 		    // TODO: Make this asynchronous
 		    rateSocket.Yield = True
 		    ratesString = rateSocket.Get(self.kGoldSilverRatesURL, 0)
-		    
+		    If rateSocket.ErrorCode <> 0 And savedRates <> Nil Then
+		      // There was an error retrieving the precious metal rates, so use the old rates
+		      // if possible
+		      ratesString = savedRates.Value("PMRates")
+		      If oldRatesMessage <> "" Then
+		        oldRatesMessage = oldRatesMessage + " and "
+		      End If
+		      oldRatesMessage = oldRatesMessage + "precious metals"
+		    End If
 		    Try
 		      self.PMRatesXML.LoadXml(ratesString)
 		    Catch e As XmlException
 		      MsgBox("XML error: " + e.Message)
 		    End Try
+		  End If
+		  
+		  // If we couldn't get some of the rates oldRatesMessage will not be empty, so we
+		  // need to put up a message to alert the user.
+		  If oldRatesMessage <> "" Then
+		    MsgBox "Couldn't retrieve the rates for " + oldRatesMessage + ". Prices will be calculated using the rates from " + savedRates.Value("RatesDate").DateValue.AbbreviatedDate + "."
 		  End If
 		  
 		  self.CurrencyCode = currencyCode
