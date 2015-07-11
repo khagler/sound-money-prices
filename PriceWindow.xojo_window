@@ -623,6 +623,27 @@ Begin Window PriceWindow
       Visible         =   True
       Width           =   166
    End
+   Begin ProgressWheel ratesDownloadProgress
+      AutoDeactivate  =   True
+      Enabled         =   True
+      Height          =   16
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Left            =   464
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Scope           =   0
+      TabIndex        =   21
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Top             =   60
+      Visible         =   False
+      Width           =   16
+   End
 End
 #tag EndWindow
 
@@ -715,6 +736,24 @@ End
 	#tag Event
 		Sub Change()
 		  self.CalculatePrices(self.FiatPrice.Text.CDbl, me.RowTag(me.ListIndex))
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events ratesDownloadProgress
+	#tag Event
+		Sub Open()
+		  me.Visible = True
+		  
+		  // We need a rate object so that we can check if the JSON/XML shared properties are not nil.
+		  Dim rateObj As New Rates("USD")
+		  
+		  If rateObj.BitcoinRatesJSON = Nil And rateObj.PMRatesXML = Nil Then
+		    While rateObj.BitcoinRatesJSON = Nil And rateObj.PMRatesXML = Nil
+		      App.SleepCurrentThread(1000)
+		    Wend
+		  End If
+		  
+		  me.Visible = False
 		End Sub
 	#tag EndEvent
 #tag EndEvents
