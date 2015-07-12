@@ -71,7 +71,7 @@ Begin Window PriceWindow
       CueText         =   ""
       DataField       =   ""
       DataSource      =   ""
-      Enabled         =   True
+      Enabled         =   False
       Format          =   ""
       Height          =   22
       HelpTag         =   ""
@@ -758,6 +758,12 @@ End
 		  End If
 		  
 		  me.Visible = False
+		  
+		  // Next we need to enable the FiatPrice text field and give it the focus. It's
+		  // disabled by default because typing into it will trigger a calculation using
+		  // rates that haven't been downloaded yet at start, throwing an exception.
+		  FiatPrice.Enabled = True
+		  FiatPrice.SetFocus
 		End Sub
 	#tag EndEvent
 #tag EndEvents
