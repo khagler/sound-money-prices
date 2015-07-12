@@ -742,9 +742,13 @@ End
 #tag Events RatesDownloadWheel
 	#tag Event
 		Sub Open()
+		  // Note that control's Open events fire before the Window's Open, so this is where
+		  // the actual downloading of the rates happens. Once PriceWindow.Open runs to
+		  // populate the CurrentRates property, the Rates.BitcoinRatesJSON and
+		  // Rates.PMRatesXML shared properties will be set.
+		  
 		  me.Visible = True
 		  
-		  // We need a rate object so that we can check if the JSON/XML shared properties are not nil.
 		  Dim rateObj As New Rates("USD")
 		  
 		  If rateObj.BitcoinRatesJSON = Nil And rateObj.PMRatesXML = Nil Then
