@@ -623,7 +623,7 @@ Begin Window PriceWindow
       Visible         =   True
       Width           =   166
    End
-   Begin ProgressWheel ratesDownloadProgress
+   Begin ProgressWheel RatesDownloadWheel
       AutoDeactivate  =   True
       Enabled         =   True
       Height          =   16
@@ -739,7 +739,7 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events ratesDownloadProgress
+#tag Events RatesDownloadWheel
 	#tag Event
 		Sub Open()
 		  me.Visible = True
