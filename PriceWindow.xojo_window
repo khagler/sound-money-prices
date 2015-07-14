@@ -737,6 +737,16 @@ End
 		End Function
 	#tag EndMethod
 
+	#tag Method, Flags = &h21
+		Private Function VariantArrayToDoubleArray(arrayIn As Variant) As Double()
+		  Dim arrayOut() As Double
+		  For Each item As Variant in arrayIn
+		    arrayOut.Append(item)
+		  Next
+		  Return arrayOut
+		End Function
+	#tag EndMethod
+
 
 	#tag Property, Flags = &h21
 		Private CurrentRates As Dictionary
