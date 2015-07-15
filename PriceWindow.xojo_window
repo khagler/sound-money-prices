@@ -720,7 +720,7 @@ End
 		  // backwards because Xojo can't sort in reverse
 		  While targetWeight > coins(0)
 		    For i As Integer = coins.Ubound DownTo 0
-		      If coins(i) <= targetWeight
+		      If coins(i) <= targetWeight Then
 		        coinsFound.Append(coins(i))
 		        coinTotal = coinTotal + coins(i)
 		        targetWeight = targetWeight - coins(i)
@@ -738,7 +738,7 @@ End
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Function VariantArrayToDoubleArray(arrayIn As Variant) As Double()
+		Private Function VariantArrayToDoubleArray(arrayIn() As Variant) As Double()
 		  Dim arrayOut() As Double
 		  For Each item As Variant in arrayIn
 		    arrayOut.Append(item)
