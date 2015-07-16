@@ -697,9 +697,9 @@ End
 		    BTC = fiat / currentRate.BitcoinRate
 		    
 		    self.GoldOunces.Text = Format(XAU, "##,###,###.####")
-		    self.DinarPrice.Text = Format(XAU / self.kDinarInOUnces, "##,###,###.##")
+		    self.DinarPrice.Text = Format(XAU / Constants.kDinarInOunces, "##,###,###.##")
 		    self.SilverOunces.Text = Format(XAG, "##,###,###.####")
-		    self.DirhamPrice.Text = Format(XAG / self.kDirhamInOunces, "##,###,###.##")
+		    self.DirhamPrice.Text = Format(XAG / Constants.kDirhamInOunces, "##,###,###.##")
 		    self.Bitcoins.Text = Format(BTC, "##,###,###.########")
 		  End If
 		End Sub
@@ -751,13 +751,6 @@ End
 	#tag Property, Flags = &h21
 		Private CurrentRates As Dictionary
 	#tag EndProperty
-
-
-	#tag Constant, Name = kDinarInOUnces, Type = Double, Dynamic = False, Default = \".1366", Scope = Private
-	#tag EndConstant
-
-	#tag Constant, Name = kDirhamInOunces, Type = Double, Dynamic = False, Default = \"0.095648", Scope = Private
-	#tag EndConstant
 
 
 #tag EndWindowCode
