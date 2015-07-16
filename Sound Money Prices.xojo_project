@@ -563,6 +563,7 @@ Folder=Third Party;Third Party;&h1C1B5FFF;&h0;false
 Folder=macoslib;Third Party/macoslib;&h2F76EFFF;&h1C1B5FFF;false
 Folder=Additional Modules;Third Party/Additional Modules;&h41A3DFFF;&h1C1B5FFF;false
 Class=HyperLabel;HyperLabel.xojo_code;&h102A6784;&h0;false
+Module=Constants;Constants.xojo_code;&h71A3CFFF;&h0;false
 DefaultWindow=PriceWindow
 AppMenuBar=MainMenuBar
 MajorVersion=1

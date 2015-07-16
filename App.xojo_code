@@ -11,16 +11,16 @@ Inherits Application
 		    ToolsMenu.Enabled = True
 		  #Endif
 		  
-		  // We need to convert the currency code JSON string in the kCurrencyCodes constant into a dictionary for
-		  // the CurrencyCodes property.
+		  // We need to convert the currency code JSON string in the Constants.kCurrencyCodes constant into a
+		  // dictionary for the CurrencyCodes property.
 		  self.CurrencyCodes = New Dictionary
-		  Dim currenciesJSON As New JSONItem(self.kCurrencyCodes)
+		  Dim currenciesJSON As New JSONItem(Constants.kCurrencyCodes)
 		  For Each code As String In currenciesJSON.Names()
 		    self.CurrencyCodes.Value(code) = currenciesJSON.Value(code)
 		  Next
 		  
-		  // Now convert the coin weights JSON string in kCoinWeights into dictionaries
-		  Dim coinsJSON As New JSONItem(self.kCoinWeights)
+		  // Now convert the coin weights JSON string in Constants.kCoinWeights into dictionaries
+		  Dim coinsJSON As New JSONItem(Constants.kCoinWeights)
 		  self.GoldCoins = self.CoinJSONToDictionary(coinsJSON.Value("gold"))
 		  self.SilverCoins = self.CoinJSONToDictionary(coinsJSON.Value("silver"))
 		  
@@ -50,7 +50,7 @@ Inherits Application
 	#tag Method, Flags = &h21
 		Private Function CoinJSONToDictionary(coins As JSONItem) As Dictionary
 		  // This method takes a JSON item with coin names as keys and coin weights
-		  // as values, and returns a dictionary with the weights as the keys and the 
+		  // as values, and returns a dictionary with the weights as the keys and the
 		  // names as the values. It's done this way because it's easier to maintain the
 		  // JSON with the names as the keys, but easier to figure out which coins to
 		  // use with weights as the keys.
@@ -110,12 +110,6 @@ Inherits Application
 		SilverCoins As Dictionary
 	#tag EndProperty
 
-
-	#tag Constant, Name = kCoinWeights, Type = String, Dynamic = False, Default = \"{\n  \"gold\": {\n    \"1 oz gold coin\": \"1\"\x2C\n    \"1/2 oz gold coin\": \"0.5\"\x2C\n    \"1/4 oz gold coin\": \"0.25\"\x2C\n    \"1/10 oz gold coin\": \"0.1\"\x2C\n    \"gold sovereign\": \"0.235420\"\x2C\n    \"gold dinar\": \"0.1366\"\n  }\x2C\n  \"silver\": {\n    \"1 oz silver coin\": \"1\"\x2C\n    \"silver dirham\": \"0.095648\"\x2C\n    \"silver dime\": \"0.07234\"\x2C\n    \"silver quarter\": \"0.18085\"\x2C\n    \"silver half dollar\": \"0.3617\"\n  }\n}", Scope = Private
-	#tag EndConstant
-
-	#tag Constant, Name = kCurrencyCodes, Type = String, Dynamic = False, Default = \"{\n\t\"ARS\": \"Argentine Pesos\"\x2C\n\t\"AUD\": \"Australian Dollars\"\x2C\n\t\"BRL\": \"Brazilian Reals\"\x2C\n\t\"GBP\": \"British Pounds\"\x2C\n\t\"CAD\": \"Canadian Dollars\"\x2C\n\t\"CNY\": \"Chinese Yuans\"\x2C\n\t\"CZK\": \"Czech Korunas\"\x2C\n\t\"DKK\": \"Danish Krones\"\x2C\n\t\"EUR\": \"Euros\"\x2C\n\t\"HKD\": \"Hong Kong Dollars\"\x2C\n\t\"INR\": \"Indian Rupees\"\x2C\n\t\"IDR\": \"Indonesian Rupiahs\"\x2C\n\t\"ILS\": \"Israeli Shekels\"\x2C\n\t\"JPY\": \"Japanese Yen\"\x2C\n\t\"MXN\": \"Mexican Pesos\"\x2C\n\t\"NZD\": \"New Zealand Dollars\"\x2C\n\t\"NOK\": \"Norwegian Krones\"\x2C\n\t\"PLN\": \"Polish Zlotys\"\x2C\n\t\"RUB\": \"Russian Rubles\"\x2C\n\t\"SGD\": \"Singapore Dollars\"\x2C\n\t\"ZAR\": \"South African Rands\"\x2C\n\t\"SEK\": \"Swedish Kronas\"\x2C\n\t\"CHF\": \"Swiss Francs\"\x2C\n\t\"THB\": \"Thai Bahts\"\x2C\n\t\"USD\": \"US Dollars\"\n}", Scope = Private
-	#tag EndConstant
 
 	#tag Constant, Name = kEditClear, Type = String, Dynamic = False, Default = \"&Delete", Scope = Public
 		#Tag Instance, Platform = Windows, Language = Default, Definition  = \"&Delete"
