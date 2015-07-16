@@ -738,10 +738,10 @@ End
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Function VariantArrayToDoubleArray(arrayIn() As Variant) As Double()
+		Private Function StringVariantArrayToDoubleArray(arrayIn() As Variant) As Double()
 		  Dim arrayOut() As Double
 		  For Each item As Variant in arrayIn
-		    arrayOut.Append(item)
+		    arrayOut.Append(Val(item.StringValue))
 		  Next
 		  Return arrayOut
 		End Function
