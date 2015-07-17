@@ -706,24 +706,25 @@ End
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Function FindCoinList(coins() As Double, targetWeight As Double) As Dictionary
+		Private Function FindCoinList(coins() As String, targetWeight As Double) As Dictionary
 		  // The returned dictionary contains a "coins" key with the list of coin weights found as its value, and a "remainder" key
 		  // with whatever is left over below the weight of the smallest coin.
 		  
 		  Dim coinTotal As Integer = 0
-		  Dim coinsFound() As Double
+		  Dim coinsFound() As String
 		  
 		  // Sort the list of coin weights in case we didn't get it sorted
 		  coins.Sort
 		  
 		  // We need to keep looping until targetWeight is less than the smallest coin weight. We go through the coin list
 		  // backwards because Xojo can't sort in reverse
-		  While targetWeight > coins(0)
+		  While targetWeight > Val(coins(0))
 		    For i As Integer = coins.Ubound DownTo 0
-		      If coins(i) <= targetWeight Then
+		      Dim coinWeight As Double = Val(coins(i))
+		      If coinWeight <= targetWeight Then
 		        coinsFound.Append(coins(i))
-		        coinTotal = coinTotal + coins(i)
-		        targetWeight = targetWeight - coins(i)
+		        coinTotal = coinTotal + coinWeight
+		        targetWeight = targetWeight - coinWeight
 		        Exit
 		      End If
 		    Next
