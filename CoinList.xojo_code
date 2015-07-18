@@ -12,7 +12,7 @@ Protected Class CoinList
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Function FindCoinList(coins() As String, targetWeight As Double) As Dictionary
+		Private Function FindCoinsForWeight(coins() As String, targetWeight As Double) As Dictionary
 		  // The returned dictionary contains a "coins" key with the list of coin weights found as its value, and a "remainder" key
 		  // with whatever is left over below the weight of the smallest coin.
 		  
