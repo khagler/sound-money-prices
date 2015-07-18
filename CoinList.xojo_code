@@ -54,20 +54,23 @@ Protected Class CoinList
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Function ToString() As String
-		  Dim outputString As String = ""
-		  
-		  For Each coinName As String In self.Coins.Keys
-		    outputString = outputString + Str(self.Coins.Value(coinName) + " " + coinName + " ")
-		  Next
-		End Function
-	#tag EndMethod
-
 
 	#tag Property, Flags = &h21
 		Private Coins As Dictionary
 	#tag EndProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Dim outputString As String = ""
+			  
+			  For Each coinName As String In self.Coins.Keys
+			    outputString = outputString + Str(self.Coins.Value(coinName) + " " + coinName + " ")
+			  Next
+			End Get
+		#tag EndGetter
+		StringValue As String
+	#tag EndComputedProperty
 
 
 	#tag ViewBehavior
