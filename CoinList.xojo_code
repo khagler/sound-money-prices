@@ -58,8 +58,8 @@ Protected Class CoinList
 		Function ToString() As String
 		  Dim outputString As String = ""
 		  
-		  For Each coinName As String In self.Coins
-		    outputString = outputString + Str(self.Coins.Value(coinName) + " " + coinName + " "
+		  For Each coinName As String In self.Coins.Keys
+		    outputString = outputString + Str(self.Coins.Value(coinName) + " " + coinName + " ")
 		  Next
 		End Function
 	#tag EndMethod
