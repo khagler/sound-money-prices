@@ -1,6 +1,12 @@
 #tag Class
 Protected Class Rates
 	#tag Method, Flags = &h0
+		Function BitcoinsForFiat(fiat As Double) As Double
+		  Return fiat / self.BitcoinRate
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub Constructor(currencyCode As String)
 		  Dim rateSocket As New HTTPSecureSocket
 		  Dim ratesString As String
@@ -98,6 +104,18 @@ Protected Class Rates
 		  Dim rateString As String = node.FirstChild.Value
 		  Dim v As Variant = rateString
 		  Return v.CurrencyValue
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function GoldWeightForFiat(fiat As Double) As Double
+		  Return fiat / self.GoldRate
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function SilverWeightForFiat(fiat As Double) As Double
+		  Return fiat / self.SilverRate
 		End Function
 	#tag EndMethod
 
