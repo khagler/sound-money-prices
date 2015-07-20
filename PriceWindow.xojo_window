@@ -692,9 +692,9 @@ End
 		  Else
 		    Dim currentRate As Rates
 		    currentRate = self.CurrentRates.Value(currencyCode)
-		    XAU = fiat / currentRate.GoldRate
-		    XAG = fiat / currentRate.SilverRate
-		    BTC = fiat / currentRate.BitcoinRate
+		    XAU = currentRate.GoldWeightForFiat(fiat)
+		    XAG = currentRate.SilverWeightForFiat(fiat)
+		    BTC = currentRate.BitcoinsForFiat(fiat)
 		    
 		    self.GoldOunces.Text = Format(XAU, "##,###,###.####")
 		    self.DinarPrice.Text = Format(XAU / Constants.kDinarInOunces, "##,###,###.##")
