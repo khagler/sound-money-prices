@@ -55,24 +55,6 @@ Protected Class CoinList
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Function SortStringArray(sortArray() As String) As String()
-		  // This sorts an array with strings that can be converted to doubles. Since Xojo
-		  // can't sort strings directly, we have to create a temporary array with the double
-		  // values of the strings, and then sort using SortWith.
-		  
-		  Dim sortingArray() As Double
-		  
-		  For i As Integer = 0 to sortArray.Ubound
-		    sortingArray.Append(sortArray(i).Val)
-		  Next
-		  
-		  sortingArray.SortWith(sortArray)
-		  
-		  Return sortArray
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
 		Private Function StringVariantArrayToDoubleArray(arrayIn() As Variant) As Double()
 		  Dim arrayOut() As Double
 		  For Each item As Variant in arrayIn
