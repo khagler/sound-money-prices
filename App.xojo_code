@@ -19,10 +19,11 @@ Inherits Application
 		    self.CurrencyCodes.Value(code) = currenciesJSON.Value(code)
 		  Next
 		  
-		  // Now convert the coin weights JSON string in Constants.kCoinWeights into dictionaries
+		  // Now convert the coin weights JSON string in Constants.kCoinWeights into dictionaries for the CoinList
+		  // shared properties
 		  Dim coinsJSON As New JSONItem(Constants.kCoinWeights)
-		  self.GoldCoins = self.CoinJSONToDictionary(coinsJSON.Value("gold"))
-		  self.SilverCoins = self.CoinJSONToDictionary(coinsJSON.Value("silver"))
+		  CoinList.GoldCoins =CoinList.CoinJSONToDictionary(coinsJSON.Value("gold"))
+		  CoinList.SilverCoins = CoinList.CoinJSONToDictionary(coinsJSON.Value("silver"))
 		  
 		End Sub
 	#tag EndEvent
@@ -46,24 +47,6 @@ Inherits Application
 		End Function
 	#tag EndMenuHandler
 
-
-	#tag Method, Flags = &h21
-		Private Function CoinJSONToDictionary(coins As JSONItem) As Dictionary
-		  // This method takes a JSON item with coin names as keys and coin weights
-		  // as values, and returns a dictionary with the weights as the keys and the
-		  // names as the values. It's done this way because it's easier to maintain the
-		  // JSON with the names as the keys, but easier to figure out which coins to
-		  // use with weights as the keys.
-		  
-		  Dim coinDict As New Dictionary
-		  
-		  For Each coin As String In coins.Names
-		    coinDict.Value(coins.Value(coin)) = coin
-		  Next
-		  
-		  Return coinDict
-		End Function
-	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub PopulateCurrencyPopup(popup As PopupMenu)
@@ -99,15 +82,7 @@ Inherits Application
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		GoldCoins As Dictionary
-	#tag EndProperty
-
-	#tag Property, Flags = &h0
 		Prefs As TTsSmartPreferences
-	#tag EndProperty
-
-	#tag Property, Flags = &h0
-		SilverCoins As Dictionary
 	#tag EndProperty
 
 

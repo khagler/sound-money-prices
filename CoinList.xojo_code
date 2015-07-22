@@ -1,13 +1,31 @@
 #tag Class
 Protected Class CoinList
 	#tag Method, Flags = &h0
+		 Shared Function CoinJSONToDictionary(coins As JSONItem) As Dictionary
+		  // This method takes a JSON item with coin names as keys and coin weights
+		  // as values, and returns a dictionary with the weights as the keys and the
+		  // names as the values. It's done this way because it's easier to maintain the
+		  // JSON with the names as the keys, but easier to figure out which coins to
+		  // use with weights as the keys.
+		  
+		  Dim coinDict As New Dictionary
+		  
+		  For Each coin As String In coins.Names
+		    coinDict.Value(coins.Value(coin)) = coin
+		  Next
+		  
+		  Return coinDict
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub Constructor()
 		  // We need to create a new dictionary with keys of all the coin types and values of 0
 		  // for each to show that there are no coins in our list.
 		  self.Coins = New Dictionary
 		  
-		  self.ResetCoinCount(App.GoldCoins)
-		  self.ResetCoinCount(App.SilverCoins)
+		  self.ResetCoinCount(self.GoldCoins)
+		  self.ResetCoinCount(self.SilverCoins)
 		End Sub
 	#tag EndMethod
 
@@ -67,6 +85,14 @@ Protected Class CoinList
 
 	#tag Property, Flags = &h21
 		Private Coins As Dictionary
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		Shared GoldCoins As Dictionary
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		Shared SilverCoins As Dictionary
 	#tag EndProperty
 
 	#tag ComputedProperty, Flags = &h0
