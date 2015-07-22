@@ -30,23 +30,27 @@ Protected Class CoinList
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Function FindCoinsForWeight(coins() As String, targetWeight As Double) As Dictionary
-		  // The returned dictionary contains a "coins" key with the list of coin weights found as its value, and a "remainder" key
-		  // with whatever is left over below the weight of the smallest coin.
+		Private Function FindCoinsForWeight(coinDict As Dictionary, targetWeight As Double) As Double
+		  // The Double returned is whatever is left over below the weight of the smallest coin.
 		  
 		  Dim coinTotal As Integer = 0
-		  Dim coinsFound() As String
 		  
-		  // Sort the list of coin weights in case we didn't get it sorted
-		  coins.Sort
+		  // Xojo makes us jump through some hoops here to get the dictionary's keys (which are strings) into an
+		  // array of strings.
+		  Dim coinWeights() As String
+		  For Each value As Variant in coinDict.Keys
+		    coinWeights.Append(value.StringValue)
+		  Next
+		  coinWeights.Sort
 		  
 		  // We need to keep looping until targetWeight is less than the smallest coin weight. We go through the coin list
 		  // backwards because Xojo can't sort in reverse
-		  While targetWeight > Val(coins(0))
-		    For i As Integer = coins.Ubound DownTo 0
-		      Dim coinWeight As Double = Val(coins(i))
+		  While targetWeight > Val(coinWeights(0))
+		    For i As Integer = coinWeights.Ubound DownTo 0
+		      Dim coinWeight As Double = Val(coinWeights(i))
 		      If coinWeight <= targetWeight Then
-		        coinsFound.Append(coins(i))
+		        // Add a coin to the list
+		        self.Coins.Value(coinDict.Value(coinWeights(i))) = self.Coins.Value(coinDict.Value(coinWeights(i))) + 1
 		        coinTotal = coinTotal + coinWeight
 		        targetWeight = targetWeight - coinWeight
 		        Exit
@@ -54,11 +58,7 @@ Protected Class CoinList
 		    Next
 		  Wend
 		  
-		  // Now construct the dictionary to return
-		  Dim coinsAndRemainder As New Dictionary
-		  coinsAndRemainder.Value("coins") = coinsFound
-		  coinsAndRemainder.Value("remainder") = targetWeight
-		  Return coinsAndRemainder
+		  Return targetWeight
 		End Function
 	#tag EndMethod
 
