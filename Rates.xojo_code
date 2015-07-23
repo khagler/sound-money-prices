@@ -68,6 +68,18 @@ Protected Class Rates
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		Function FiatForGoldWeight(fiat As Double) As Double
+		  Return self.GoldRate / fiat
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function FiatForSilverWeight(fiat As Double) As Double
+		  Return self.SilverRate / fiat
+		End Function
+	#tag EndMethod
+
 	#tag Method, Flags = &h21
 		Private Sub GetBitcoinRates()
 		  Try
