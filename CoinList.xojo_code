@@ -63,6 +63,19 @@ Protected Class CoinList
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
+		Private Function FindSmallestCoin(coins As Dictionary) As Double
+		  // Finds the smallest coin among the coins in the passed dictionary and returns
+		  // its weight as a Double.
+		  
+		  Dim coinWeights() As String
+		  coinWeights = self.VariantArrayToStringArray(coins.Keys)
+		  coinWeights.Sort
+		  Return coinWeights(0).Val
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
 		Private Sub ResetCoinCount(CoinDict As Dictionary)
 		  // Resets the coins whose names are keys in the dictionary to have 0 coins
 		  
