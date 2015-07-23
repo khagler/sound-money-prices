@@ -112,6 +112,10 @@ Protected Class CoinList
 		Shared SilverCoins As Dictionary
 	#tag EndProperty
 
+	#tag Property, Flags = &h21
+		Private SilverRemainder As Double = 0
+	#tag EndProperty
+
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
