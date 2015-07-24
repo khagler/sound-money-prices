@@ -162,6 +162,8 @@ Protected Class CoinList
 			  For Each coinName As String In self.Coins.Keys
 			    outputString = outputString + Str(self.Coins.Value(coinName) + " " + coinName + " ")
 			  Next
+			  
+			  Return outputString + Str(self.SilverRemainder)
 			End Get
 		#tag EndGetter
 		StringValue As String
