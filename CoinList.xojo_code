@@ -26,6 +26,44 @@ Protected Class CoinList
 		  
 		  self.ResetCoinCount(self.GoldCoins)
 		  self.ResetCoinCount(self.SilverCoins)
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub Constructor(fiatPrice As Double, theRates As Rates)
+		  // This constructor finds a list of coins that meet a specified fiat price based on
+		  // specified current rates.
+		  
+		  // Call the constructor with no parameters to get a fresh Coins dictionary
+		  self.Constructor
+		  
+		  // Start by finding the gold weight for the fiat price
+		  Dim PMWeight As Double = theRates.GoldWeightForFiat(fiatPrice)
+		  Dim remainder As Double
+		  
+		  // We need to see if our weight is at least as great as the smallest gold coin we know about.
+		  // If it is, then we look for gold coins to add. We start by finding the smallest coin.
+		  Dim smallestCoin As Double = self.FindSmallestCoin(self.GoldCoins)
+		  
+		  If PMWeight >= smallestCoin Then
+		    remainder = self.FindCoinsForWeight(self.GoldCoins, PMWeight)
+		  Else
+		    // There are no gold coins that small, so the whole amount is the remainder
+		    remainder = PMWeight
+		  End If
+		  
+		  // Next convert the remainder weight back to fiat, and from there into silver weight
+		  remainder = theRates.FiatForGoldWeight(remainder)
+		  PMWeight = theRates.SilverWeightForFiat(remainder)
+		  
+		  // Now look for silver coins to add
+		  smallestCoin = self.FindSmallestCoin(self.SilverCoins)
+		  If PMWeight >= smallestCoin Then
+		    remainder = self.FindCoinsForWeight(self.SilverCoins, PMWeight)
+		  End If
+		  
+		  self.SilverRemainder = remainder
 		End Sub
 	#tag EndMethod
 
