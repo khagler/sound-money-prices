@@ -117,8 +117,8 @@ Protected Class CoinList
 		Private Sub ResetCoinCount(CoinDict As Dictionary)
 		  // Resets the coins whose names are keys in the dictionary to have 0 coins
 		  
-		  For Each coinName As String in CoinDict.Keys
-		    self.Coins.Value(coinName) = 0
+		  For Each coinWeight As String in CoinDict.Keys
+		    self.Coins.Value(CoinDict.Value(coinWeight)) = 0
 		  Next
 		End Sub
 	#tag EndMethod
