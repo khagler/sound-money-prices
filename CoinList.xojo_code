@@ -73,12 +73,10 @@ Protected Class CoinList
 		  
 		  Dim coinTotal As Integer = 0
 		  
-		  // Xojo makes us jump through some hoops here to get the dictionary's keys (which are strings) into an
-		  // array of strings.
+		  // Get the coin weights for this kind of coin as an array of strings. They can be
+		  // found as the keys in the coinDict dictionary.
 		  Dim coinWeights() As String
-		  For Each value As Variant in coinDict.Keys
-		    coinWeights.Append(value.StringValue)
-		  Next
+		  coinWeights = self.VariantArrayToStringArray(coinDict.Keys)
 		  coinWeights.Sort
 		  
 		  // We need to keep looping until targetWeight is less than the smallest coin weight. We go through the coin list
