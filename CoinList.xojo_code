@@ -89,6 +89,8 @@ Protected Class CoinList
 		        self.Coins.Value(coinDict.Value(coinWeights(i))) = self.Coins.Value(coinDict.Value(coinWeights(i))) + 1
 		        coinTotal = coinTotal + coinWeight
 		        targetWeight = targetWeight - coinWeight
+		        // Now break out of the For loop and continue the While loop. We do this so we don't start adding
+		        // smaller coins when another of the largest coins might do.
 		        Exit
 		      End If
 		    Next
