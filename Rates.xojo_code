@@ -69,14 +69,14 @@ Protected Class Rates
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function FiatForGoldWeight(fiat As Double) As Double
-		  Return self.GoldRate / fiat
+		Function FiatForGoldWeight(weight As Double) As Double
+		  Return self.GoldRate * weight
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function FiatForSilverWeight(fiat As Double) As Double
-		  Return self.SilverRate / fiat
+		Function FiatForSilverWeight(weight As Double) As Double
+		  Return self.SilverRate * weight
 		End Function
 	#tag EndMethod
 
