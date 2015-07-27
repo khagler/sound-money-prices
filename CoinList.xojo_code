@@ -113,6 +113,12 @@ Protected Class CoinList
 		End Function
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		Function RemainderInFiat(rate As Rates) As Double
+		  Return rate.FiatForSilverWeight(self.SilverRemainder)
+		End Function
+	#tag EndMethod
+
 	#tag Method, Flags = &h21
 		Private Sub ResetCoinCount(CoinDict As Dictionary)
 		  // Resets the coins whose names are keys in the dictionary to have 0 coins
