@@ -612,22 +612,23 @@ End
 		  // a bunch of edit fields with "0." in them.
 		  If fiat = 0 Then
 		    self.GoldOunces.Text = ""
-		    self.DinarPrice.Text = ""
 		    self.SilverOunces.Text = ""
-		    self.DirhamPrice.Text = ""
 		    self.Bitcoins.Text = ""
+		    self.CoinListArea.Text = ""
 		  Else
 		    Dim currentRate As Rates
 		    currentRate = self.CurrentRates.Value(currencyCode)
+		    Dim coins As CoinList
+		    coins = New CoinList(fiat, currentRate)
+		    
 		    XAU = currentRate.GoldWeightForFiat(fiat)
 		    XAG = currentRate.SilverWeightForFiat(fiat)
 		    BTC = currentRate.BitcoinsForFiat(fiat)
 		    
 		    self.GoldOunces.Text = Format(XAU, "##,###,###.####")
-		    self.DinarPrice.Text = Format(XAU / Constants.kDinarInOunces, "##,###,###.##")
 		    self.SilverOunces.Text = Format(XAG, "##,###,###.####")
-		    self.DirhamPrice.Text = Format(XAG / Constants.kDirhamInOunces, "##,###,###.##")
 		    self.Bitcoins.Text = Format(BTC, "##,###,###.########")
+		    self.CoinListArea.Text = coins.StringValue + " with " + Format(coins.RemainderInFiat(currentRate), "##,###,###.##") + " " + currencyCode + " remaining"
 		  End If
 		End Sub
 	#tag EndMethod
