@@ -160,10 +160,18 @@ Protected Class CoinList
 			  Dim outputString As String = ""
 			  
 			  For Each coinName As String In self.Coins.Keys
-			    outputString = outputString + Str(self.Coins.Value(coinName) + " " + coinName + " ")
+			    If self.Coins.Value(coinName) > 0 Then
+			      outputString = outputString + Str(self.Coins.Value(coinName) + " " + coinName + ", ")
+			    End If
 			  Next
 			  
-			  Return outputString + Str(self.SilverRemainder)
+			  // Clean off the trailing comma and space
+			  outputString = outputString.RTrim
+			  If outputString.Right(1) = "," Then
+			    outputString = outputString.Mid(1, outputString.Len - 1)
+			  End If
+			  
+			  Return outputString
 			End Get
 		#tag EndGetter
 		StringValue As String
