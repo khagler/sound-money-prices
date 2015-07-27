@@ -82,18 +82,16 @@ Protected Class Rates
 
 	#tag Method, Flags = &h21
 		Private Sub GetBitcoinRates()
-		  Try
+		  Select Case True
+		  Case self.BitcoinRatesJSON.Child(self.CurrencyCode).HasName("24h")
 		    self.BitcoinRate = self.BitcoinRatesJSON.Child(self.CurrencyCode).Value("24h")
-		  Catch err As KeyNotFoundException
-		    // If there's no 24h rate, fall back to the 7d rate
-		    Try
-		      self.BitcoinRate = self.BitcoinRatesJSON.Child(self.CurrencyCode).Value("7d")
-		    Catch weekerr As KeyNotFoundException
-		      // There's no 7d rate either, so try the 30d rate
-		      // TODO: Add sensible fallback in case there's no rate at all
-		      self.BitcoinRate = self.BitcoinRatesJSON.Child(self.CurrencyCode).Value("30d")
-		    End Try
-		  End Try
+		  Case self.BitcoinRatesJSON.Child(self.CurrencyCode).HasName("7d")
+		    self.BitcoinRate = self.BitcoinRatesJSON.Child(self.CurrencyCode).Value("7d")
+		  Case self.BitcoinRatesJSON.Child(self.CurrencyCode).HasName("30d")
+		    self.BitcoinRate = self.BitcoinRatesJSON.Child(self.CurrencyCode).Value("30d")
+		  Else
+		    MsgBox "There's no exchange rate for " + self.CurrencyCode
+		  End Select
 		End Sub
 	#tag EndMethod
 
