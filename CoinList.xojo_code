@@ -61,6 +61,9 @@ Protected Class CoinList
 		  smallestCoin = self.FindSmallestCoin(self.SilverCoins)
 		  If PMWeight >= smallestCoin Then
 		    remainder = self.FindCoinsForWeight(self.SilverCoins, PMWeight)
+		  Else
+		    // There are no gold coins that small, so the whole amount is the remainder
+		    remainder = PMWeight
 		  End If
 		  
 		  self.SilverRemainder = remainder
