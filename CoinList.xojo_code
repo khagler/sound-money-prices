@@ -94,19 +94,6 @@ Protected Class CoinList
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
-		Private Function FindSmallestCoin(coins As Dictionary) As Double
-		  // Finds the smallest coin among the coins in the passed dictionary and returns
-		  // its weight as a Double.
-		  
-		  Dim coinWeights() As String
-		  coinWeights = self.VariantArrayToStringArray(coins.Keys)
-		  coinWeights.Sort
-		  Return coinWeights(0).Val
-		  
-		End Function
-	#tag EndMethod
-
 	#tag Method, Flags = &h0
 		Function RemainderInFiat(rate As Rates) As Double
 		  Return rate.FiatForSilverWeight(self.SilverRemainder)
