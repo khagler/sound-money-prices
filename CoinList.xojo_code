@@ -42,29 +42,15 @@ Protected Class CoinList
 		  Dim PMWeight As Double = theRates.GoldWeightForFiat(fiatPrice)
 		  Dim remainder As Double
 		  
-		  // We need to see if our weight is at least as great as the smallest gold coin we know about.
-		  // If it is, then we look for gold coins to add. We start by finding the smallest coin.
-		  Dim smallestCoin As Double = self.FindSmallestCoin(self.GoldCoins)
-		  
-		  If PMWeight >= smallestCoin Then
-		    remainder = self.FindCoinsForWeight(self.GoldCoins, PMWeight)
-		  Else
-		    // There are no gold coins that small, so the whole amount is the remainder
-		    remainder = PMWeight
-		  End If
+		  // Look for gold coins to add to the list
+		  remainder = self.FindCoinsForWeight(self.GoldCoins, PMWeight)
 		  
 		  // Next convert the remainder weight back to fiat, and from there into silver weight
 		  remainder = theRates.FiatForGoldWeight(remainder)
 		  PMWeight = theRates.SilverWeightForFiat(remainder)
 		  
 		  // Now look for silver coins to add
-		  smallestCoin = self.FindSmallestCoin(self.SilverCoins)
-		  If PMWeight >= smallestCoin Then
-		    remainder = self.FindCoinsForWeight(self.SilverCoins, PMWeight)
-		  Else
-		    // There are no gold coins that small, so the whole amount is the remainder
-		    remainder = PMWeight
-		  End If
+		  remainder = self.FindCoinsForWeight(self.SilverCoins, PMWeight)
 		  
 		  self.SilverRemainder = remainder
 		End Sub
@@ -81,6 +67,11 @@ Protected Class CoinList
 		  Dim coinWeights() As String
 		  coinWeights = self.VariantArrayToStringArray(coinDict.Keys)
 		  coinWeights.Sort
+		  
+		  // Check if targetWeight is below the smallest coin weight. If it is, just return the targetWeight now.
+		  If targetWeight < Val(coinWeights(0)) Then
+		    Return targetWeight
+		  End If
 		  
 		  // We need to keep looping until targetWeight is less than the smallest coin weight. We go through the coin list
 		  // backwards because Xojo can't sort in reverse
