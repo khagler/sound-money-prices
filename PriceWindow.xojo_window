@@ -628,7 +628,18 @@ End
 		    self.GoldOunces.Text = Format(XAU, "##,###,###.####")
 		    self.SilverOunces.Text = Format(XAG, "##,###,###.####")
 		    self.Bitcoins.Text = Format(BTC, "##,###,###.########")
-		    self.CoinListArea.Text = coins.StringValue + " with " + Format(coins.RemainderInFiat(currentRate), "##,###,###.##") + " " + currencyCode + " remaining"
+		    
+		    // Now build up a string containing the list of coins and set the CoinListArea to it
+		    Dim coinsText As String = ""
+		    For Each coinType As String in coins.StringArrayValue
+		      coinsText = coinsText + coinType + EndOfLine
+		    Next
+		    
+		    If coins.RemainderInFiat(currentRate) <> 0 Then
+		      coinsText = coinsText + EndOfLine + Format(coins.RemainderInFiat(currentRate), "##,###,###.##") + " " + App.CurrencyCodes.Value(currencyCode) + " remaining"
+		    End If
+		    
+		    self.CoinListArea.Text = coinsText.RTrim
 		  End If
 		End Sub
 	#tag EndMethod
