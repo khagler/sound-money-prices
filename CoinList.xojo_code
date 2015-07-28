@@ -135,7 +135,7 @@ Protected Class CoinList
 		  
 		  For Each coinName As String In self.Coins.Keys
 		    If self.Coins.Value(coinName) > 0 Then
-		      outputArray.Append(Str(self.Coins.Value(coinName)))
+		      outputArray.Append(Str(self.Coins.Value(coinName) + " " + coinName))
 		    End If
 		  Next
 		  
