@@ -174,29 +174,6 @@ Protected Class CoinList
 		Private SilverRemainder As Double = 0
 	#tag EndProperty
 
-	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  Dim outputString As String = ""
-			  
-			  For Each coinName As String In self.Coins.Keys
-			    If self.Coins.Value(coinName) > 0 Then
-			      outputString = outputString + Str(self.Coins.Value(coinName) + " " + coinName + ", ")
-			    End If
-			  Next
-			  
-			  // Clean off the trailing comma and space
-			  outputString = outputString.RTrim
-			  If outputString.Right(1) = "," Then
-			    outputString = outputString.Mid(1, outputString.Len - 1)
-			  End If
-			  
-			  Return outputString
-			End Get
-		#tag EndGetter
-		StringValue As String
-	#tag EndComputedProperty
-
 
 	#tag ViewBehavior
 		#tag ViewProperty
@@ -217,6 +194,11 @@ Protected Class CoinList
 			Name="Name"
 			Visible=true
 			Group="ID"
+			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="StringValue"
+			Group="Behavior"
 			Type="String"
 		#tag EndViewProperty
 		#tag ViewProperty
