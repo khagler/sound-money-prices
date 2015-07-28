@@ -129,6 +129,20 @@ Protected Class CoinList
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		Function StringArrayValue() As String()
+		  Dim outputArray() As String
+		  
+		  For Each coinName As String In self.Coins.Keys
+		    If self.Coins.Value(coinName) > 0 Then
+		      outputArray.Append(Str(self.Coins.Value(coinName)))
+		    End If
+		  Next
+		  
+		  Return outputArray
+		End Function
+	#tag EndMethod
+
 	#tag Method, Flags = &h21
 		Private Function VariantArrayToStringArray(arrayIn() As Variant) As String()
 		  // Xojo makes us jump through some hoops here to turn an array of variants
