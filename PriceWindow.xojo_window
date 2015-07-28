@@ -641,7 +641,11 @@ End
 		      coinsText = coinsText + EndOfLine + remainderText + " " + App.CurrencyCodes.Value(currencyCode) + " remaining"
 		    End If
 		    
-		    self.CoinListArea.Text = coinsText.RTrim
+		    // We need to define the encoding of the string we pass to the text area as UTF8, even
+		    // though it's already supposed to be UTF8 and the docs specifically say I don't need
+		    // to use DefineEncoding on a string created in my app, because apparently the
+		    // TextArea's Text property didn't get the word.
+		    self.CoinListArea.Text = coinsText.RTrim.DefineEncoding(Encodings.UTF8)
 		  End If
 		End Sub
 	#tag EndMethod
