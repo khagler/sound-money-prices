@@ -635,8 +635,10 @@ End
 		      coinsText = coinsText + coinType + EndOfLine
 		    Next
 		    
-		    If coins.RemainderInFiat(currentRate) <> 0 Then
-		      coinsText = coinsText + EndOfLine + Format(coins.RemainderInFiat(currentRate), "##,###,###.##") + " " + App.CurrencyCodes.Value(currencyCode) + " remaining"
+		    // Only show the remainder if it's at least one cent
+		    Dim remainderText As String = Format(coins.RemainderInFiat(currentRate), "##,###,###.##")
+		    If remainderText <> "0.00" Then
+		      coinsText = coinsText + EndOfLine + remainderText + " " + App.CurrencyCodes.Value(currencyCode) + " remaining"
 		    End If
 		    
 		    self.CoinListArea.Text = coinsText.RTrim
