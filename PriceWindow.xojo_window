@@ -625,9 +625,9 @@ End
 		    XAG = currentRate.SilverWeightForFiat(fiat)
 		    BTC = currentRate.BitcoinsForFiat(fiat)
 		    
-		    self.GoldOunces.Text = Format(XAU, "##,###,###.####")
-		    self.SilverOunces.Text = Format(XAG, "##,###,###.####")
-		    self.Bitcoins.Text = Format(BTC, "##,###,###.########")
+		    self.GoldOunces.Text = Format(XAU, "##,###,###.0###")
+		    self.SilverOunces.Text = Format(XAG, "##,###,###.0###")
+		    self.Bitcoins.Text = Format(BTC, "##,###,###.0#######")
 		    
 		    // Now build up a string containing the list of coins and set the CoinListArea to it
 		    Dim coinsText As String = ""
@@ -636,7 +636,7 @@ End
 		    Next
 		    
 		    // Only show the remainder if it's at least one cent
-		    Dim remainderText As String = Format(coins.RemainderInFiat(currentRate), "##,###,###.##")
+		    Dim remainderText As String = Format(coins.RemainderInFiat(currentRate), "##,###,###.00")
 		    If remainderText <> "0.00" Then
 		      coinsText = coinsText + EndOfLine + remainderText + " " + App.CurrencyCodes.Value(currencyCode) + " remaining"
 		    End If
