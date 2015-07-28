@@ -2,7 +2,7 @@
 Begin Window PriceWindow
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
-   CloseButton     =   False
+   CloseButton     =   True
    Compatibility   =   ""
    Composite       =   False
    Frame           =   0

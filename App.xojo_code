@@ -3,6 +3,9 @@ Protected Class App
 Inherits Application
 	#tag Event
 		Sub Open()
+		  // Quit the app if the window is closed
+		  App.AutoQuit = True
+		  
 		  // Instantiate prefs
 		  self.Prefs = New TTsSmartPreferences("Sound Money Prices")
 		  
