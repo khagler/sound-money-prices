@@ -645,7 +645,7 @@ End
 		    // though it's already supposed to be UTF8 and the docs specifically say I don't need
 		    // to use DefineEncoding on a string created in my app, because apparently the
 		    // TextArea's Text property didn't get the word.
-		    self.CoinListArea.Text = coinsText.RTrim.DefineEncoding(Encodings.UTF8)
+		    self.CoinListArea.Text = coinsText.LTrim.RTrim.DefineEncoding(Encodings.UTF8)
 		  End If
 		End Sub
 	#tag EndMethod
