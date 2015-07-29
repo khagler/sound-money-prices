@@ -113,10 +113,15 @@ Protected Class CoinList
 	#tag Method, Flags = &h0
 		Function StringArrayValue() As String()
 		  Dim outputArray() As String
+		  Dim stringValue As String
 		  
 		  For Each coinName As String In self.Coins.Keys
 		    If self.Coins.Value(coinName) > 0 Then
-		      outputArray.Append(Str(self.Coins.Value(coinName) + " " + coinName))
+		      stringValue = Str(self.Coins.Value(coinName) + " " + coinName)
+		      If self.Coins.Value(coinName) > 1 Then
+		        stringValue = stringValue + "s"
+		      End If
+		      outputArray.Append(stringValue)
 		    End If
 		  Next
 		  
