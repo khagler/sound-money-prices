@@ -90,7 +90,12 @@ Protected Class Rates
 		  Case self.BitcoinRatesJSON.Child(self.CurrencyCode).HasName("30d")
 		    self.BitcoinRate = self.BitcoinRatesJSON.Child(self.CurrencyCode).Value("30d")
 		  Else
-		    MsgBox "There's no exchange rate for " + self.CurrencyCode
+		    // There's no Bitcoin exchange rate available for this currency. We'll approximate
+		    // by looking converting the gold equivalent to dollars, and from dollars to Bitcoin.
+		    Dim goldInDollars As Currency = self.GetRateFromXML(self.PMRatesXML, "XAUUSD")
+		    Dim btcInDollars As Currency = self.BitcoinRatesJSON.Child("USD").Value("24h")
+		    Dim fiatInDollars As Currency = self.GoldRate / goldInDollars
+		    self.BitcoinRate = fiatInDollars * btcInDollars
 		  End Select
 		End Sub
 	#tag EndMethod
