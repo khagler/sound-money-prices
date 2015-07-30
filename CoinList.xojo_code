@@ -129,20 +129,6 @@ Protected Class CoinList
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
-		Private Function VariantArrayToStringArray(arrayIn() As Variant) As String()
-		  // Xojo makes us jump through some hoops here to turn an array of variants
-		  // (such as a dictionary's keys) into an array of strings.
-		  
-		  Dim arrayOut() As String
-		  
-		  For Each item As Variant in arrayIn
-		    arrayOut.Append(item.StringValue)
-		  Next
-		  Return arrayOut
-		End Function
-	#tag EndMethod
-
 
 	#tag Property, Flags = &h21
 		Private Coins As Dictionary
