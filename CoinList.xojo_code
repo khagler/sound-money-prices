@@ -65,7 +65,7 @@ Protected Class CoinList
 		  // Get the coin weights for this kind of coin as an array of strings. They can be
 		  // found as the keys in the coinDict dictionary.
 		  Dim coinWeights() As String
-		  coinWeights = self.VariantArrayToStringArray(coinDict.Keys)
+		  coinWeights = NativeSubclass.DictionaryCaseSensitive.VariantArrayToStringArray(coinDict.Keys)
 		  coinWeights.Sort
 		  
 		  // Check if targetWeight is below the smallest coin weight. If it is, just return the targetWeight now.
