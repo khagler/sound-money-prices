@@ -130,6 +130,12 @@ Protected Class CoinList
 	#tag EndMethod
 
 
+	#tag Note, Name = Dependencies
+		
+		macoslib: The FindCoinsForWeight method uses NativeSubclass.DictionaryCaseSensitive.VariantArrayToStringArray from macoslib.
+	#tag EndNote
+
+
 	#tag Property, Flags = &h21
 		Private Coins As Dictionary
 	#tag EndProperty
