@@ -82,13 +82,15 @@ Protected Class Rates
 
 	#tag Method, Flags = &h21
 		Private Sub GetBitcoinRates()
+		  Dim currencyJSON As JSONItem = self.BitcoinRatesJSON.Child(self.CurrencyCode)
+		  
 		  Select Case True
-		  Case self.BitcoinRatesJSON.Child(self.CurrencyCode).HasName("24h")
-		    self.BitcoinRate = self.BitcoinRatesJSON.Child(self.CurrencyCode).Value("24h")
-		  Case self.BitcoinRatesJSON.Child(self.CurrencyCode).HasName("7d")
-		    self.BitcoinRate = self.BitcoinRatesJSON.Child(self.CurrencyCode).Value("7d")
-		  Case self.BitcoinRatesJSON.Child(self.CurrencyCode).HasName("30d")
-		    self.BitcoinRate = self.BitcoinRatesJSON.Child(self.CurrencyCode).Value("30d")
+		  Case currencyJSON.HasName("24h")
+		    self.BitcoinRate = currencyJSON.Value("24h")
+		  Case currencyJSON.HasName("7d")
+		    self.BitcoinRate = currencyJSON.Value("7d")
+		  Case currencyJSON.HasName("30d")
+		    self.BitcoinRate = currencyJSON.Value("30d")
 		  Else
 		    // There's no Bitcoin exchange rate available for this currency. We'll approximate
 		    // by looking converting the gold equivalent to dollars, and from dollars to Bitcoin.
