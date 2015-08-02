@@ -68,6 +68,19 @@ Protected Class Rates
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h21
+		Private Sub EstimateBitcoinRate()
+		  // This method is used if there's no Bitcoin exchange rate available for the currency.
+		  // We'll approximate by looking converting the gold equivalent to dollars, and from
+		  // dollars to Bitcoin.
+		  Dim goldInDollars As Currency = self.GetRateFromXML(self.PMRatesXML, "XAUUSD")
+		  Dim btcInDollars As Currency = self.BitcoinRatesJSON.Child("USD").Value("24h")
+		  Dim fiatInDollars As Currency = self.GoldRate / goldInDollars
+		  self.BitcoinRate = fiatInDollars * btcInDollars
+		  
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h0
 		Function FiatForGoldWeight(weight As Double) As Double
 		  Return self.GoldRate * weight
