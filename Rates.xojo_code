@@ -97,7 +97,7 @@ Protected Class Rates
 		Private Sub GetBitcoinRates()
 		  If Not self.BitcoinRatesJSON.HasName(self.CurrencyCode) Then
 		    // The JSON has no value for this currency, so use an estimate
-		    EstimateBitcoinRate
+		    self.EstimateBitcoinRate
 		  Else
 		    Dim currencyJSON As JSONItem = self.BitcoinRatesJSON.Child(self.CurrencyCode)
 		    
@@ -112,7 +112,7 @@ Protected Class Rates
 		      // We got a JSON value for the currency, but it doesn't actually have any rates
 		      // in it. I'm not sure if this situation can actually occur, but if it does we'll fall
 		      // back on an estimate
-		      EstimateBitcoinRate
+		      self.EstimateBitcoinRate
 		    End Select
 		  End If
 		End Sub
