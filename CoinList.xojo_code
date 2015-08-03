@@ -1,6 +1,21 @@
 #tag Class
 Protected Class CoinList
 	#tag Method, Flags = &h0
+		 Shared Sub AddCoin(coinMetal As Metal, coinName As String, coinWeight As String)
+		  Select Case coinMetal
+		  Case Metal.Silver
+		    If Not CoinList.SilverCoins.HasKey(coinWeight) Then
+		      CoinList.SilverCoins.Value(coinWeight) = coinName
+		    End If
+		  Case Metal.Gold
+		    If Not CoinList.GoldCoins.HasKey(coinWeight) Then
+		      CoinList.GoldCoins.Value(coinWeight) = coinName
+		    End If
+		  End Select
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		 Shared Function CoinJSONToDictionary(coins As JSONItem) As Dictionary
 		  // This method takes a JSON item with coin names as keys and coin weights
 		  // as values, and returns a dictionary with the weights as the keys and the
@@ -98,6 +113,21 @@ Protected Class CoinList
 		Function RemainderInFiat(rate As Rates) As Double
 		  Return rate.FiatForSilverWeight(self.SilverRemainder)
 		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		 Shared Sub RemoveCoin(coinMetal As Metal, coinName As String, coinWeight As String)
+		  Select Case coinMetal
+		  Case Metal.Silver
+		    If CoinList.SilverCoins.HasKey(coinWeight) Then
+		      CoinList.SilverCoins.Remove(coinWeight)
+		    End If
+		  Case Metal.Gold
+		    If CoinList.GoldCoins.HasKey(coinWeight) Then
+		      CoinList.GoldCoins.Remove(coinWeight)
+		    End If
+		  End Select
+		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
