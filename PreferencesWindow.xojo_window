@@ -139,7 +139,7 @@ Begin Window PreferencesWindow
       Underline       =   False
       Visible         =   True
       Width           =   499
-      Begin CheckBox OneOzGoldCheckBox
+      Begin CheckBox GoldCoinSet
          AutoDeactivate  =   True
          Bold            =   False
          Caption         =   "1 ounce gold coin"
@@ -148,7 +148,7 @@ Begin Window PreferencesWindow
          Enabled         =   True
          Height          =   20
          HelpTag         =   ""
-         Index           =   -2147483648
+         Index           =   0
          InitialParent   =   "GoldGroupBox"
          Italic          =   False
          Left            =   40
@@ -171,7 +171,7 @@ Begin Window PreferencesWindow
          Visible         =   True
          Width           =   145
       End
-      Begin CheckBox HalfOzGoldCheckBox
+      Begin CheckBox GoldCoinSet
          AutoDeactivate  =   True
          Bold            =   False
          Caption         =   "½ ounce gold coin"
@@ -180,7 +180,7 @@ Begin Window PreferencesWindow
          Enabled         =   True
          Height          =   20
          HelpTag         =   ""
-         Index           =   -2147483648
+         Index           =   1
          InitialParent   =   "GoldGroupBox"
          Italic          =   False
          Left            =   197
@@ -203,7 +203,7 @@ Begin Window PreferencesWindow
          Visible         =   True
          Width           =   145
       End
-      Begin CheckBox QuarterOzGoldCheckBox
+      Begin CheckBox GoldCoinSet
          AutoDeactivate  =   True
          Bold            =   False
          Caption         =   "¼ ounce gold coin"
@@ -212,7 +212,7 @@ Begin Window PreferencesWindow
          Enabled         =   True
          Height          =   20
          HelpTag         =   ""
-         Index           =   -2147483648
+         Index           =   2
          InitialParent   =   "GoldGroupBox"
          Italic          =   False
          Left            =   354
@@ -235,7 +235,7 @@ Begin Window PreferencesWindow
          Visible         =   True
          Width           =   145
       End
-      Begin CheckBox TenthOzGoldCheckBox
+      Begin CheckBox GoldCoinSet
          AutoDeactivate  =   True
          Bold            =   False
          Caption         =   "⅒ ounce gold coin"
@@ -244,7 +244,7 @@ Begin Window PreferencesWindow
          Enabled         =   True
          Height          =   20
          HelpTag         =   ""
-         Index           =   -2147483648
+         Index           =   3
          InitialParent   =   "GoldGroupBox"
          Italic          =   False
          Left            =   40
@@ -267,7 +267,7 @@ Begin Window PreferencesWindow
          Visible         =   True
          Width           =   145
       End
-      Begin CheckBox GoldSovereignCheckBox
+      Begin CheckBox GoldCoinSet
          AutoDeactivate  =   True
          Bold            =   False
          Caption         =   "gold sovereign"
@@ -276,7 +276,7 @@ Begin Window PreferencesWindow
          Enabled         =   True
          Height          =   20
          HelpTag         =   ""
-         Index           =   -2147483648
+         Index           =   4
          InitialParent   =   "GoldGroupBox"
          Italic          =   False
          Left            =   197
@@ -299,7 +299,7 @@ Begin Window PreferencesWindow
          Visible         =   True
          Width           =   145
       End
-      Begin CheckBox GoldDinarCheckBox
+      Begin CheckBox GoldCoinSet
          AutoDeactivate  =   True
          Bold            =   False
          Caption         =   "gold dinar"
@@ -308,7 +308,7 @@ Begin Window PreferencesWindow
          Enabled         =   True
          Height          =   20
          HelpTag         =   ""
-         Index           =   -2147483648
+         Index           =   5
          InitialParent   =   "GoldGroupBox"
          Italic          =   False
          Left            =   354
@@ -359,7 +359,7 @@ Begin Window PreferencesWindow
       Underline       =   False
       Visible         =   True
       Width           =   499
-      Begin CheckBox OneOzSilverCheckBox
+      Begin CheckBox SilverCoinSet
          AutoDeactivate  =   True
          Bold            =   False
          Caption         =   "1 ounce silver coin"
@@ -368,7 +368,7 @@ Begin Window PreferencesWindow
          Enabled         =   True
          Height          =   20
          HelpTag         =   ""
-         Index           =   -2147483648
+         Index           =   0
          InitialParent   =   "SilverGroupBox"
          Italic          =   False
          Left            =   40
@@ -391,7 +391,7 @@ Begin Window PreferencesWindow
          Visible         =   True
          Width           =   145
       End
-      Begin CheckBox SilverHalfDollarCheckBox
+      Begin CheckBox SilverCoinSet
          AutoDeactivate  =   True
          Bold            =   False
          Caption         =   "silver half dollar"
@@ -400,7 +400,7 @@ Begin Window PreferencesWindow
          Enabled         =   True
          Height          =   20
          HelpTag         =   ""
-         Index           =   -2147483648
+         Index           =   1
          InitialParent   =   "SilverGroupBox"
          Italic          =   False
          Left            =   197
@@ -423,7 +423,7 @@ Begin Window PreferencesWindow
          Visible         =   True
          Width           =   145
       End
-      Begin CheckBox SilverQuarterCheckBox
+      Begin CheckBox SilverCoinSet
          AutoDeactivate  =   True
          Bold            =   False
          Caption         =   "silver quarter"
@@ -432,7 +432,7 @@ Begin Window PreferencesWindow
          Enabled         =   True
          Height          =   20
          HelpTag         =   ""
-         Index           =   -2147483648
+         Index           =   2
          InitialParent   =   "SilverGroupBox"
          Italic          =   False
          Left            =   354
@@ -455,7 +455,7 @@ Begin Window PreferencesWindow
          Visible         =   True
          Width           =   145
       End
-      Begin CheckBox SilverDirhamCheckBox
+      Begin CheckBox SilverCoinSet
          AutoDeactivate  =   True
          Bold            =   False
          Caption         =   "silver dirham"
@@ -464,7 +464,7 @@ Begin Window PreferencesWindow
          Enabled         =   True
          Height          =   20
          HelpTag         =   ""
-         Index           =   -2147483648
+         Index           =   3
          InitialParent   =   "SilverGroupBox"
          Italic          =   False
          Left            =   40
@@ -487,7 +487,7 @@ Begin Window PreferencesWindow
          Visible         =   True
          Width           =   145
       End
-      Begin CheckBox SilverDimeCheckBox
+      Begin CheckBox SilverCoinSet
          AutoDeactivate  =   True
          Bold            =   False
          Caption         =   "silver dime"
@@ -496,7 +496,7 @@ Begin Window PreferencesWindow
          Enabled         =   True
          Height          =   20
          HelpTag         =   ""
-         Index           =   -2147483648
+         Index           =   4
          InitialParent   =   "SilverGroupBox"
          Italic          =   False
          Left            =   197
