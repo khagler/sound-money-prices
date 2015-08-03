@@ -206,7 +206,7 @@ Begin Window PreferencesWindow
       Begin CheckBox QuarterOzGoldCheckBox
          AutoDeactivate  =   True
          Bold            =   False
-         Caption         =   "½ ounce gold coin"
+         Caption         =   "¼ ounce gold coin"
          DataField       =   ""
          DataSource      =   ""
          Enabled         =   True
