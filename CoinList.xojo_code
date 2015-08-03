@@ -153,6 +153,14 @@ Protected Class CoinList
 	#tag EndProperty
 
 
+	#tag Enum, Name = Metal, Type = Integer, Flags = &h0
+		Copper
+		  Silver
+		  Gold
+		Platinum
+	#tag EndEnum
+
+
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="Index"
