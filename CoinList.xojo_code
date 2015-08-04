@@ -15,8 +15,8 @@ Protected Class CoinList
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		 Shared Sub CoinJSONToDictionary(coins As JSONItem, metal As String)
+	#tag Method, Flags = &h21
+		Private Shared Sub CoinJSONToDictionary(coins As JSONItem, metal As String)
 		  // This method takes a JSON item with coin names as keys and coin weights
 		  // as values, and returns a dictionary with the weights as the keys and the
 		  // names as the values. It's done this way because it's easier to maintain the
