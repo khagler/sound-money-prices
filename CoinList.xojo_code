@@ -16,7 +16,7 @@ Protected Class CoinList
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Function CoinJSONToDictionary(coins As JSONItem) As Dictionary
+		 Shared Sub CoinJSONToDictionary(coins As JSONItem, metal As String)
 		  // This method takes a JSON item with coin names as keys and coin weights
 		  // as values, and returns a dictionary with the weights as the keys and the
 		  // names as the values. It's done this way because it's easier to maintain the
@@ -25,12 +25,20 @@ Protected Class CoinList
 		  
 		  Dim coinDict As New Dictionary
 		  
+		  // Assign a new dictonary to the shared property, wiping out anything that
+		  // was already there.
+		  Select Case metal
+		  Case "gold"
+		    CoinList.GoldCoins = New Dictionary
+		  Case "silver"
+		    CoinList.SilverCoins = New Dictionary
+		  End Select
+		  
 		  For Each coin As String In coins.Names
-		    coinDict.Value(coins.Value(coin)) = coin
+		    CoinList.AddCoin(metal, coin, coins.Value(coin))
 		  Next
 		  
-		  Return coinDict
-		End Function
+		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
