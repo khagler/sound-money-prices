@@ -207,6 +207,10 @@ Protected Class CoinList
 	#tag EndProperty
 
 
+	#tag Constant, Name = kCoinWeights, Type = String, Dynamic = False, Default = \"{\n  \"gold\": {\n    \"one oz gold coin\": \"1\"\x2C\n    \"half oz gold coin\": \"0.5\"\x2C\n    \"quarter oz gold coin\": \"0.25\"\x2C\n    \"tenth oz gold coin\": \"0.1\"\x2C\n    \"gold sovereign\": \"0.235420\"\x2C\n    \"gold dinar\": \"0.1366\"\n  }\x2C\n  \"silver\": {\n    \"one oz silver coin\": \"1\"\x2C\n    \"silver dirham\": \"0.095648\"\x2C\n    \"silver dime\": \"0.07234\"\x2C\n    \"silver quarter\": \"0.18085\"\x2C\n    \"silver half dollar\": \"0.3617\"\n  }\n}", Scope = Private
+	#tag EndConstant
+
+
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="Index"
