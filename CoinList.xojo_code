@@ -149,6 +149,22 @@ Protected Class CoinList
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		 Shared Sub SetKnownCoins(coinsJSON As JSONItem)
+		  // Takes JSON containing all of the known coins and sets up the class's
+		  // GoldCoins and SilverCoins shared properties. This needs to be called
+		  // before CoinList can be instantiated.
+		  
+		  If coinsJSON.HasName("gold") Then
+		    CoinList.CoinJSONToDictionary(coinsJSON.Value("gold"), "gold")
+		  End If
+		  
+		  If coinsJSON.HasName("silver") Then
+		    CoinList.CoinJSONToDictionary(coinsJSON.Value("silver"), "silver")
+		  End If
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function StringArrayValue() As String()
 		  Dim outputArray() As String
 		  Dim stringValue As String
