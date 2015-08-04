@@ -123,7 +123,7 @@ Begin Window PriceWindow
       Visible         =   True
       Width           =   500
    End
-   Begin GroupBox GroupBox1
+   Begin GroupBox GoldGroupBox
       AutoDeactivate  =   True
       Bold            =   False
       Caption         =   "Price in Gold"
@@ -159,7 +159,7 @@ Begin Window PriceWindow
          Height          =   20
          HelpTag         =   ""
          Index           =   -2147483648
-         InitialParent   =   "GroupBox1"
+         InitialParent   =   "GoldGroupBox"
          Italic          =   False
          Left            =   177
          LockBottom      =   False
@@ -200,7 +200,7 @@ Begin Window PriceWindow
          Height          =   22
          HelpTag         =   ""
          Index           =   -2147483648
-         InitialParent   =   "GroupBox1"
+         InitialParent   =   "GoldGroupBox"
          Italic          =   False
          Left            =   40
          LimitText       =   0
@@ -228,7 +228,7 @@ Begin Window PriceWindow
          Width           =   125
       End
    End
-   Begin GroupBox GroupBox2
+   Begin GroupBox SilverGroupBox
       AutoDeactivate  =   True
       Bold            =   False
       Caption         =   "Price in Silver"
@@ -271,7 +271,7 @@ Begin Window PriceWindow
          Height          =   22
          HelpTag         =   ""
          Index           =   -2147483648
-         InitialParent   =   "GroupBox2"
+         InitialParent   =   "SilverGroupBox"
          Italic          =   False
          Left            =   40
          LimitText       =   0
@@ -307,7 +307,7 @@ Begin Window PriceWindow
          Height          =   20
          HelpTag         =   ""
          Index           =   -2147483648
-         InitialParent   =   "GroupBox2"
+         InitialParent   =   "SilverGroupBox"
          Italic          =   False
          Left            =   177
          LockBottom      =   False
@@ -333,7 +333,7 @@ Begin Window PriceWindow
          Width           =   78
       End
    End
-   Begin GroupBox GroupBox3
+   Begin GroupBox BitcoinGroupBox
       AutoDeactivate  =   True
       Bold            =   False
       Caption         =   "Price in Bitcoin"
@@ -369,7 +369,7 @@ Begin Window PriceWindow
          Height          =   20
          HelpTag         =   ""
          Index           =   -2147483648
-         InitialParent   =   "GroupBox3"
+         InitialParent   =   "BitcoinGroupBox"
          Italic          =   False
          Left            =   177
          LockBottom      =   False
@@ -410,7 +410,7 @@ Begin Window PriceWindow
          Height          =   22
          HelpTag         =   ""
          Index           =   -2147483648
-         InitialParent   =   "GroupBox3"
+         InitialParent   =   "BitcoinGroupBox"
          Italic          =   False
          Left            =   40
          LimitText       =   0
