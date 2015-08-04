@@ -25,9 +25,7 @@ Inherits Application
 		  // Now convert the coin weights JSON string in Constants.kCoinWeights into dictionaries for the CoinList
 		  // shared properties
 		  Dim coinsJSON As New JSONItem(Constants.kCoinWeights)
-		  CoinList.GoldCoins =CoinList.CoinJSONToDictionary(coinsJSON.Value("gold"))
-		  CoinList.SilverCoins = CoinList.CoinJSONToDictionary(coinsJSON.Value("silver"))
-		  
+		  CoinList.SetKnownCoins(coinsJSON)
 		End Sub
 	#tag EndEvent
 
