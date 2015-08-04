@@ -26,7 +26,7 @@ Begin Window PriceWindow
    Title           =   "Sound Money Prices"
    Visible         =   True
    Width           =   500
-   Begin Label Label1
+   Begin Label Labels
       AutoDeactivate  =   True
       Bold            =   False
       DataField       =   ""
@@ -34,7 +34,7 @@ Begin Window PriceWindow
       Enabled         =   True
       Height          =   20
       HelpTag         =   ""
-      Index           =   -2147483648
+      Index           =   0
       InitialParent   =   ""
       Italic          =   False
       Left            =   20
@@ -150,7 +150,7 @@ Begin Window PriceWindow
       Underline       =   False
       Visible         =   True
       Width           =   249
-      Begin Label Label6
+      Begin Label Labels
          AutoDeactivate  =   True
          Bold            =   False
          DataField       =   ""
@@ -158,7 +158,7 @@ Begin Window PriceWindow
          Enabled         =   True
          Height          =   20
          HelpTag         =   ""
-         Index           =   -2147483648
+         Index           =   1
          InitialParent   =   "GoldGroupBox"
          Italic          =   False
          Left            =   177
@@ -298,7 +298,7 @@ Begin Window PriceWindow
          Visible         =   True
          Width           =   125
       End
-      Begin Label Label7
+      Begin Label Labels
          AutoDeactivate  =   True
          Bold            =   False
          DataField       =   ""
@@ -306,7 +306,7 @@ Begin Window PriceWindow
          Enabled         =   True
          Height          =   20
          HelpTag         =   ""
-         Index           =   -2147483648
+         Index           =   2
          InitialParent   =   "SilverGroupBox"
          Italic          =   False
          Left            =   177
@@ -360,7 +360,7 @@ Begin Window PriceWindow
       Underline       =   False
       Visible         =   True
       Width           =   249
-      Begin Label Label8
+      Begin Label Labels
          AutoDeactivate  =   True
          Bold            =   False
          DataField       =   ""
@@ -368,7 +368,7 @@ Begin Window PriceWindow
          Enabled         =   True
          Height          =   20
          HelpTag         =   ""
-         Index           =   -2147483648
+         Index           =   3
          InitialParent   =   "BitcoinGroupBox"
          Italic          =   False
          Left            =   177
@@ -490,7 +490,7 @@ Begin Window PriceWindow
       Visible         =   False
       Width           =   16
    End
-   Begin Label Label9
+   Begin Label Labels
       AutoDeactivate  =   True
       Bold            =   False
       DataField       =   ""
@@ -498,7 +498,7 @@ Begin Window PriceWindow
       Enabled         =   True
       Height          =   20
       HelpTag         =   ""
-      Index           =   -2147483648
+      Index           =   4
       InitialParent   =   ""
       Italic          =   False
       Left            =   281
