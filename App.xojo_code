@@ -21,11 +21,6 @@ Inherits Application
 		  For Each code As String In currenciesJSON.Names()
 		    self.CurrencyCodes.Value(code) = currenciesJSON.Value(code)
 		  Next
-		  
-		  // Now convert the coin weights JSON string in Constants.kCoinWeights into dictionaries for the CoinList
-		  // shared properties
-		  Dim coinsJSON As New JSONItem(Constants.kCoinWeights)
-		  CoinList.SetKnownCoins(coinsJSON)
 		End Sub
 	#tag EndEvent
 

@@ -43,6 +43,12 @@ Protected Class CoinList
 
 	#tag Method, Flags = &h0
 		Sub Constructor()
+		  // If either the GoldCoins or SilverCoins shared property is nil, we need to load the
+		  // JSON containing the known coins into them.
+		  If self.GoldCoins = Nil Or self.SilverCoins = Nil Then
+		    self.SetKnownCoins(New JSONItem(self.kCoinWeights))
+		  End If
+		  
 		  // We need to create a new dictionary with keys of all the coin types and values of 0
 		  // for each to show that there are no coins in our list.
 		  self.Coins = New Dictionary
