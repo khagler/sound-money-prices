@@ -1,13 +1,13 @@
 #tag Class
 Protected Class CoinList
 	#tag Method, Flags = &h0
-		 Shared Sub AddCoin(coinMetal As Metal, coinName As String, coinWeight As String)
+		 Shared Sub AddCoin(coinMetal As String, coinName As String, coinWeight As String)
 		  Select Case coinMetal
-		  Case Metal.Silver
+		  Case "silver"
 		    If Not CoinList.SilverCoins.HasKey(coinWeight) Then
 		      CoinList.SilverCoins.Value(coinWeight) = coinName
 		    End If
-		  Case Metal.Gold
+		  Case "gold"
 		    If Not CoinList.GoldCoins.HasKey(coinWeight) Then
 		      CoinList.GoldCoins.Value(coinWeight) = coinName
 		    End If
@@ -116,13 +116,13 @@ Protected Class CoinList
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Sub RemoveCoin(coinMetal As Metal, coinName As String, coinWeight As String)
+		 Shared Sub RemoveCoin(coinMetal As String, coinName As String, coinWeight As String)
 		  Select Case coinMetal
-		  Case Metal.Silver
+		  Case "silver"
 		    If CoinList.SilverCoins.HasKey(coinWeight) Then
 		      CoinList.SilverCoins.Remove(coinWeight)
 		    End If
-		  Case Metal.Gold
+		  Case "gold"
 		    If CoinList.GoldCoins.HasKey(coinWeight) Then
 		      CoinList.GoldCoins.Remove(coinWeight)
 		    End If
@@ -181,14 +181,6 @@ Protected Class CoinList
 	#tag Property, Flags = &h21
 		Private SilverRemainder As Double = 0
 	#tag EndProperty
-
-
-	#tag Enum, Name = Metal, Type = Integer, Flags = &h0
-		Copper
-		  Silver
-		  Gold
-		Platinum
-	#tag EndEnum
 
 
 	#tag ViewBehavior
