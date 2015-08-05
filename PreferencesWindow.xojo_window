@@ -603,3 +603,25 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
+#tag Events GoldCoinSet
+	#tag Event
+		Sub Action(index as Integer)
+		  If GoldCoinSet(index).Value Then
+		    CoinList.AddCoin("gold", self.GoldCoinForCheckBox(index).Value("name"), self.GoldCoinForCheckBox(index).Value("weight"))
+		  Else
+		    CoinList.RemoveCoin("gold", self.GoldCoinForCheckBox(index).Value("weight"))
+		  End If
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events SilverCoinSet
+	#tag Event
+		Sub Action(index as Integer)
+		  If SilverCoinSet(index).Value Then
+		    CoinList.AddCoin("silver", self.SilverCoinForCheckBox(index).Value("name"), self.SilverCoinForCheckBox(index).Value("weight"))
+		  Else
+		    CoinList.RemoveCoin("silver", self.SilverCoinForCheckBox(index).Value("weight"))
+		  End If
+		End Sub
+	#tag EndEvent
+#tag EndEvents
