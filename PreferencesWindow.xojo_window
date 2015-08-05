@@ -148,7 +148,7 @@ Begin Window PreferencesWindow
          Enabled         =   True
          Height          =   20
          HelpTag         =   ""
-         Index           =   0
+         Index           =   5
          InitialParent   =   "GoldGroupBox"
          Italic          =   False
          Left            =   40
@@ -180,7 +180,7 @@ Begin Window PreferencesWindow
          Enabled         =   True
          Height          =   20
          HelpTag         =   ""
-         Index           =   1
+         Index           =   4
          InitialParent   =   "GoldGroupBox"
          Italic          =   False
          Left            =   197
@@ -212,7 +212,7 @@ Begin Window PreferencesWindow
          Enabled         =   True
          Height          =   20
          HelpTag         =   ""
-         Index           =   2
+         Index           =   3
          InitialParent   =   "GoldGroupBox"
          Italic          =   False
          Left            =   354
@@ -244,7 +244,7 @@ Begin Window PreferencesWindow
          Enabled         =   True
          Height          =   20
          HelpTag         =   ""
-         Index           =   3
+         Index           =   0
          InitialParent   =   "GoldGroupBox"
          Italic          =   False
          Left            =   40
@@ -276,7 +276,7 @@ Begin Window PreferencesWindow
          Enabled         =   True
          Height          =   20
          HelpTag         =   ""
-         Index           =   4
+         Index           =   2
          InitialParent   =   "GoldGroupBox"
          Italic          =   False
          Left            =   197
@@ -308,7 +308,7 @@ Begin Window PreferencesWindow
          Enabled         =   True
          Height          =   20
          HelpTag         =   ""
-         Index           =   5
+         Index           =   1
          InitialParent   =   "GoldGroupBox"
          Italic          =   False
          Left            =   354
@@ -368,7 +368,7 @@ Begin Window PreferencesWindow
          Enabled         =   True
          Height          =   20
          HelpTag         =   ""
-         Index           =   0
+         Index           =   4
          InitialParent   =   "SilverGroupBox"
          Italic          =   False
          Left            =   40
@@ -400,7 +400,7 @@ Begin Window PreferencesWindow
          Enabled         =   True
          Height          =   20
          HelpTag         =   ""
-         Index           =   1
+         Index           =   3
          InitialParent   =   "SilverGroupBox"
          Italic          =   False
          Left            =   197
@@ -464,7 +464,7 @@ Begin Window PreferencesWindow
          Enabled         =   True
          Height          =   20
          HelpTag         =   ""
-         Index           =   3
+         Index           =   1
          InitialParent   =   "SilverGroupBox"
          Italic          =   False
          Left            =   40
@@ -496,7 +496,7 @@ Begin Window PreferencesWindow
          Enabled         =   True
          Height          =   20
          HelpTag         =   ""
-         Index           =   4
+         Index           =   0
          InitialParent   =   "SilverGroupBox"
          Italic          =   False
          Left            =   197
