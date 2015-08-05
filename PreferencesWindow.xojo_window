@@ -534,6 +534,46 @@ End
 	#tag EndMenuHandler
 
 
+	#tag Method, Flags = &h0
+		Sub InitCheckBoxArrays()
+		  // We'll initialize the arrays that go with the checkboxes by instantiating CoinList
+		  // and using CoinList.GoldCoins and CoinList.SilverCoins to create the dictionaries
+		  // that go in the arrays. Since the point of the checkboxes is to _remove_ (or
+		  // re-add) coins from those CoinList shared properties, this method must be called
+		  // when the app launches, before a CoinList object can be created by the
+		  // PriceWindow.CalculatePrices method.
+		  
+		  Dim coins As New CoinList
+		  
+		  If coins.GoldCoins <> Nil Then
+		    Dim coinWeights() As String
+		    coinWeights = NativeSubclass.DictionaryCaseSensitive.VariantArrayToStringArray(coins.GoldCoins.Keys)
+		    coinWeights.Sort
+		    
+		    For i As Integer = 0 To coinWeights.Ubound
+		      Dim coinDict As New Dictionary
+		      coinDict.Value("weight") = coinWeights(i)
+		      coinDict.Value("name") = coins.GoldCoins.Value(coinWeights(i))
+		      self.GoldCoinForCheckBox.Append coinDict
+		    Next
+		  End If
+		  
+		  If coins.SilverCoins <> Nil Then
+		    Dim coinWeights() As String
+		    coinWeights = NativeSubclass.DictionaryCaseSensitive.VariantArrayToStringArray(coins.SilverCoins.Keys)
+		    coinWeights.Sort
+		    
+		    For i As Integer = 0 To coinWeights.Ubound
+		      Dim coinDict As New Dictionary
+		      coinDict.Value("weight") = coinWeights(i)
+		      coinDict.Value("name") = coins.SilverCoins.Value(coinWeights(i))
+		      self.SilverCoinForCheckBox.Append coinDict
+		    Next
+		  End If
+		End Sub
+	#tag EndMethod
+
+
 	#tag Property, Flags = &h21
 		Private GoldCoinForCheckBox() As Dictionary
 	#tag EndProperty
