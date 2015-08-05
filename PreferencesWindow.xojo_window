@@ -24,7 +24,7 @@ Begin Window PreferencesWindow
    Placement       =   0
    Resizeable      =   True
    Title           =   "Preferences"
-   Visible         =   True
+   Visible         =   False
    Width           =   539
    Begin Label Label1
       AutoDeactivate  =   True
