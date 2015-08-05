@@ -534,6 +534,15 @@ End
 	#tag EndMenuHandler
 
 
+	#tag Property, Flags = &h21
+		Private GoldCoinForCheckBox() As Dictionary
+	#tag EndProperty
+
+	#tag Property, Flags = &h21
+		Private SilverCoinForCheckBox() As Dictionary
+	#tag EndProperty
+
+
 #tag EndWindowCode
 
 #tag Events DefaultCurrencyPopupMenu
