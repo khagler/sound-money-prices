@@ -659,7 +659,7 @@ End
 		  Dim defaultPrefs() As Boolean
 		  defaultPrefs = Array(True, True, True, True, True, True)
 		  
-		  Dim prefsStates() As Boolean = App.Prefs.Value("GoldCoinPrefs", defaultPrefs)
+		  Dim prefsStates() As Boolean = self.VariantArrayToBooleanArray(App.Prefs.Value("GoldCoinPrefs", defaultPrefs))
 		  
 		  GoldCoinSet(index).Value = prefsStates(index)
 		End Sub
@@ -693,7 +693,7 @@ End
 		  Dim defaultPrefs() As Boolean
 		  defaultPrefs = Array(True, True, True, True, True)
 		  
-		  Dim prefsStates() As Boolean = App.Prefs.Value("SilverCoinPrefs", defaultPrefs)
+		  Dim prefsStates() As Boolean = self.VariantArrayToBooleanArray(App.Prefs.Value("SilverCoinPrefs", defaultPrefs))
 		  
 		  SilverCoinSet(index).Value = prefsStates(index)
 		End Sub
