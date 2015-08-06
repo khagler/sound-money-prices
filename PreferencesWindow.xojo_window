@@ -574,6 +574,18 @@ End
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
+		Private Function PopulateDefaultPrefs(times As Integer) As Variant()
+		  Dim defaultPrefs() As Variant
+		  
+		  For i As Integer = 0 To times - 1
+		    defaultPrefs.Append True
+		  Next
+		  
+		  Return defaultPrefs
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
 		Private Function VariantArrayToBooleanArray(vArr() As Variant, valueForNonBoolean As Boolean = True) As Boolean()
 		  // Convenience method. This is based on NativeSubclass.DictionaryCaseSensitive.VariantArrayToStringArray
 		  // in macoslib.
