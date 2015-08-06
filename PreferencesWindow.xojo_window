@@ -607,7 +607,15 @@ End
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
+		Private GoldDefaultPrefs() As Variant
+	#tag EndProperty
+
+	#tag Property, Flags = &h21
 		Private SilverCoinForCheckBox() As Dictionary
+	#tag EndProperty
+
+	#tag Property, Flags = &h21
+		Private SilverDefaultPrefs() As Variant
 	#tag EndProperty
 
 
