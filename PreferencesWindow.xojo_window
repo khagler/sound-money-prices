@@ -573,6 +573,34 @@ End
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h21
+		Private Function VariantArrayToBooleanArray(vArr() As Variant, valueForNonBoolean As Boolean = True) As Boolean()
+		  // Convenience method. This is based on NativeSubclass.DictionaryCaseSensitive.VariantArrayToStringArray
+		  // in macoslib.
+		  // Pulls the boolean values out of a Variant array.
+		  // Where the variant <> TypeBoolean, will use the valueForNonString value instead.
+		  
+		  dim r() as boolean
+		  dim lastIndex as integer = vArr.Ubound
+		  if lastIndex = -1 then return r
+		  
+		  redim r( lastIndex )
+		  
+		  dim thisKey as Variant
+		  for i as integer = 0 to lastIndex
+		    thisKey = vArr( i )
+		    if thisKey.Type = Variant.TypeBoolean then
+		      r( i ) = thisKey.BooleanValue
+		    else
+		      r( i ) = valueForNonBoolean
+		    end if
+		  next
+		  
+		  return r
+		  
+		End Function
+	#tag EndMethod
+
 
 	#tag Property, Flags = &h21
 		Private GoldCoinForCheckBox() As Dictionary
