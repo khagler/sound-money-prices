@@ -615,6 +615,27 @@ End
 		  End If
 		End Sub
 	#tag EndEvent
+	#tag Event
+		Sub Open(index as Integer)
+		  // We need to check the preferences to see which coin checkboxes should be
+		  // checked. There is an array in the prefs for the type of coin, with boolean
+		  // values that correspond to the checkboxes with the same index in their
+		  // respective control sets.
+		  
+		  // Set up the arrays used for the checkbox control sets in PreferencesWindow. We
+		  // have to do this in the Open handler for both control sets because we can't be
+		  // sure which will be called first.
+		  self.InitCheckBoxArrays
+		  
+		  // Next set up the default arrays to use if this pref was never set before.
+		  Dim defaultPrefs() As Boolean
+		  defaultPrefs = Array(True, True, True, True, True, True)
+		  
+		  Dim prefsStates() As Boolean = App.Prefs.Value("GoldCoinPrefs", defaultPrefs)
+		  
+		  GoldCoinSet(index).Value = prefsStates(index)
+		End Sub
+	#tag EndEvent
 #tag EndEvents
 #tag Events SilverCoinSet
 	#tag Event
@@ -626,6 +647,27 @@ End
 		  Else
 		    CoinList.RemoveCoin("silver", self.SilverCoinForCheckBox(index).Value("weight"))
 		  End If
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub Open(index as Integer)
+		  // We need to check the preferences to see which coin checkboxes should be
+		  // checked. There is an array in the prefs for the type of coin, with boolean
+		  // values that correspond to the checkboxes with the same index in their
+		  // respective control sets.
+		  
+		  // Set up the arrays used for the checkbox control sets in PreferencesWindow. We
+		  // have to do this in the Open handler for both control sets because we can't be
+		  // sure which will be called first.
+		  self.InitCheckBoxArrays
+		  
+		  // Next set up the default arrays to use if this pref was never set before.
+		  Dim defaultPrefs() As Boolean
+		  defaultPrefs = Array(True, True, True, True, True)
+		  
+		  Dim prefsStates() As Boolean = App.Prefs.Value("SilverCoinPrefs", defaultPrefs)
+		  
+		  SilverCoinSet(index).Value = prefsStates(index)
 		End Sub
 	#tag EndEvent
 #tag EndEvents
