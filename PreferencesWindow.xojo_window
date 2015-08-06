@@ -675,11 +675,10 @@ End
 		  // sure which will be called first.
 		  self.InitCheckBoxArrays
 		  
-		  // Next set up the default arrays to use if this pref was never set before.
-		  Dim defaultPrefs() As Boolean
-		  defaultPrefs = Array(True, True, True, True, True, True)
+		  // Next set up the default array to use if this pref was never set before.
+		  self.GoldDefaultPrefs = self.PopulateDefaultPrefs(6)
 		  
-		  Dim prefsStates() As Boolean = self.VariantArrayToBooleanArray(App.Prefs.Value("GoldCoinPrefs", defaultPrefs))
+		  Dim prefsStates() As Boolean = self.VariantArrayToBooleanArray(App.Prefs.Value("GoldCoinPrefs", self.GoldDefaultPrefs))
 		  
 		  GoldCoinSet(index).Value = prefsStates(index)
 		End Sub
@@ -709,11 +708,10 @@ End
 		  // sure which will be called first.
 		  self.InitCheckBoxArrays
 		  
-		  // Next set up the default arrays to use if this pref was never set before.
-		  Dim defaultPrefs() As Boolean
-		  defaultPrefs = Array(True, True, True, True, True)
+		  // Next set up the default array to use if this pref was never set before.
+		  self.SilverDefaultPrefs = self.PopulateDefaultPrefs(5)
 		  
-		  Dim prefsStates() As Boolean = self.VariantArrayToBooleanArray(App.Prefs.Value("SilverCoinPrefs", defaultPrefs))
+		  Dim prefsStates() As Boolean = self.VariantArrayToBooleanArray(App.Prefs.Value("SilverCoinPrefs", self.SilverDefaultPrefs))
 		  
 		  SilverCoinSet(index).Value = prefsStates(index)
 		End Sub
