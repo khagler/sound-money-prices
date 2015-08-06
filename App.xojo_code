@@ -21,9 +21,6 @@ Inherits Application
 		  For Each code As String In currenciesJSON.Names()
 		    self.CurrencyCodes.Value(code) = currenciesJSON.Value(code)
 		  Next
-		  
-		  // Set up the arrays used for the checkbox control sets in PreferencesWindow
-		  PreferencesWindow.InitCheckBoxArrays
 		End Sub
 	#tag EndEvent
 
