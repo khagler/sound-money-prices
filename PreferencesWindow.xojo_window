@@ -606,6 +606,8 @@ End
 #tag Events GoldCoinSet
 	#tag Event
 		Sub Action(index as Integer)
+		  // Add or remove the coin from the list of coins being used by CoinList, depending on the
+		  // checkbox state.
 		  If GoldCoinSet(index).Value Then
 		    CoinList.AddCoin("gold", self.GoldCoinForCheckBox(index).Value("name"), self.GoldCoinForCheckBox(index).Value("weight"))
 		  Else
@@ -617,6 +619,8 @@ End
 #tag Events SilverCoinSet
 	#tag Event
 		Sub Action(index as Integer)
+		  // Add or remove the coin from the list of coins being used by CoinList, depending on the
+		  // checkbox state.
 		  If SilverCoinSet(index).Value Then
 		    CoinList.AddCoin("silver", self.SilverCoinForCheckBox(index).Value("name"), self.SilverCoinForCheckBox(index).Value("weight"))
 		  Else
