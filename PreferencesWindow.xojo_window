@@ -534,8 +534,8 @@ End
 	#tag EndMenuHandler
 
 
-	#tag Method, Flags = &h0
-		Sub InitCheckBoxArrays()
+	#tag Method, Flags = &h21
+		Private Sub InitCheckBoxArrays()
 		  // We'll initialize the arrays that go with the checkboxes by instantiating CoinList
 		  // and using CoinList.GoldCoins and CoinList.SilverCoins to create the dictionaries
 		  // that go in the arrays. Since the point of the checkboxes is to _remove_ (or
