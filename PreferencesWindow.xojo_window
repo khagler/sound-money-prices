@@ -661,6 +661,14 @@ End
 		  Else
 		    CoinList.RemoveCoin("gold", self.GoldCoinForCheckBox(index).Value("weight"))
 		  End If
+		  
+		  // Now update the preferences. To do this we have to get the prefs array for this coin type
+		  // from the prefs, modify our local copy of the array, then set the prefs value to our
+		  // modified array.
+		  Dim prefsStates() As Boolean = self.VariantArrayToBooleanArray(App.Prefs.Value("GoldCoinPrefs", self.GoldDefaultPrefs))
+		  prefsStates(index) = GoldCoinSet(index).Value
+		  App.Prefs.Value("GoldCoinPrefs") = prefsStates
+		  App.Prefs.Sync
 		End Sub
 	#tag EndEvent
 	#tag Event
@@ -694,6 +702,14 @@ End
 		  Else
 		    CoinList.RemoveCoin("silver", self.SilverCoinForCheckBox(index).Value("weight"))
 		  End If
+		  
+		  // Now update the preferences. To do this we have to get the prefs array for this coin type
+		  // from the prefs, modify our local copy of the array, then set the prefs value to our
+		  // modified array.
+		  Dim prefsStates() As Boolean = self.VariantArrayToBooleanArray(App.Prefs.Value("SilverCoinPrefs", self.SilverDefaultPrefs))
+		  prefsStates(index) = SilverCoinSet(index).Value
+		  App.Prefs.Value("SilverCoinPrefs") = prefsStates
+		  App.Prefs.Sync
 		End Sub
 	#tag EndEvent
 	#tag Event
