@@ -669,6 +669,9 @@ End
 		  prefsStates(index) = GoldCoinSet(index).Value
 		  App.Prefs.Value("GoldCoinPrefs") = prefsStates
 		  App.Prefs.Sync
+		  
+		  // Set the fiat price in PriceWindow to itself to force a recalculation using the changed prefs.
+		  PriceWindow.FiatPrice.Text = PriceWindow.FiatPrice.Text
 		End Sub
 	#tag EndEvent
 	#tag Event
@@ -710,6 +713,9 @@ End
 		  prefsStates(index) = SilverCoinSet(index).Value
 		  App.Prefs.Value("SilverCoinPrefs") = prefsStates
 		  App.Prefs.Sync
+		  
+		  // Set the fiat price in PriceWindow to itself to force a recalculation using the changed prefs.
+		  PriceWindow.FiatPrice.Text = PriceWindow.FiatPrice.Text
 		End Sub
 	#tag EndEvent
 	#tag Event
