@@ -22,6 +22,8 @@ Inherits Application
 		  For Each code As String In currenciesJSON.Names()
 		    self.CurrencyCodes.Value(code) = currenciesJSON.Value(code)
 		  Next
+		  
+		  Dim prefsWindow As New PreferencesWindow
 		End Sub
 	#tag EndEvent
 
