@@ -6,8 +6,9 @@ Inherits Application
 		  // Quit the app if the window is closed
 		  App.AutoQuit = True
 		  
-		  // Instantiate prefs
+		  // Instantiate prefs object and read them from disc
 		  self.Prefs = New TTsSmartPreferences("Sound Money Prices")
+		  self.Prefs.Sync
 		  
 		  // Enable the Tools menu if we're not running on a Mac.
 		  #If TargetMacOS <> True
