@@ -87,7 +87,7 @@ Protected Module IOKit
 		  // Hint: To convert to seconds, divide by 1000000000
 		  //
 		  
-		  const errorReturnValue as Int64 = -1
+		  const errorReturnValue = -1
 		  
 		  #if TargetMacOS
 		    declare function IOServiceMatching lib IOKit (name as CString) as Ptr

@@ -237,7 +237,6 @@ Inherits CGContext
 			Name="InterpolationQuality"
 			Group="Behavior"
 			Type="CGInterpolationQuality"
-			EditorType="Enum"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"

@@ -131,12 +131,6 @@ Inherits CFType
 
 	#tag ViewBehavior
 		#tag ViewProperty
-			Name="Description"
-			Group="Behavior"
-			Type="String"
-			EditorType="MultiLineEditor"
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"
