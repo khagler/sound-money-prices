@@ -719,9 +719,19 @@ End
 		  self.InitCheckBoxArrays
 		  
 		  // Next set up the default array to use if this pref was never set before.
-		  self.GoldDefaultPrefs = self.PopulateDefaultPrefs(7)
+		  Dim controlSetSize As Integer = 7
+		  self.GoldDefaultPrefs = self.PopulateDefaultPrefs(controlSetSize)
 		  
 		  Dim prefsStates() As Boolean = self.VariantArrayToBooleanArray(App.Prefs.Value("GoldCoinPrefs", self.GoldDefaultPrefs))
+		  
+		  // Check if the saved states from the prefs is the same as the control set size.
+		  // If it's not, the number of checkboxes in the control set has changed since the
+		  // pref was written. We'll replace the prefs with the default prefs since there's
+		  // no way to know exactly which checkbox was added or removed.
+		  If prefsStates.Ubound <> self.GoldDefaultPrefs.Ubound Then
+		    prefsStates = self.VariantArrayToBooleanArray(self.GoldDefaultPrefs)
+		    App.Prefs.Value("GoldCoinPrefs") = prefsStates
+		  End If
 		  
 		  GoldCoinSet(index).Value = prefsStates(index)
 		End Sub
@@ -766,6 +776,15 @@ End
 		  self.SilverDefaultPrefs = self.PopulateDefaultPrefs(5)
 		  
 		  Dim prefsStates() As Boolean = self.VariantArrayToBooleanArray(App.Prefs.Value("SilverCoinPrefs", self.SilverDefaultPrefs))
+		  
+		  // Check if the saved states from the prefs is the same as the control set size.
+		  // If it's not, the number of checkboxes in the control set has changed since the
+		  // pref was written. We'll replace the prefs with the default prefs since there's
+		  // no way to know exactly which checkbox was added or removed.
+		  If prefsStates.Ubound <> self.SilverDefaultPrefs.Ubound Then
+		    prefsStates = self.VariantArrayToBooleanArray(self.SilverDefaultPrefs)
+		    App.Prefs.Value("SilverCoinPrefs") = prefsStates
+		  End If
 		  
 		  SilverCoinSet(index).Value = prefsStates(index)
 		End Sub
