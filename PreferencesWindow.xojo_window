@@ -9,7 +9,7 @@ Begin Window PreferencesWindow
    FullScreen      =   False
    FullScreenButton=   False
    HasBackColor    =   False
-   Height          =   316
+   Height          =   348
    ImplicitInstance=   True
    LiveResize      =   True
    MacProcID       =   0
@@ -117,7 +117,7 @@ Begin Window PreferencesWindow
       Bold            =   False
       Caption         =   "Gold Coins to Use"
       Enabled         =   True
-      Height          =   108
+      Height          =   140
       HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
@@ -151,7 +151,7 @@ Begin Window PreferencesWindow
          Index           =   5
          InitialParent   =   "GoldGroupBox"
          Italic          =   False
-         Left            =   40
+         Left            =   197
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   True
@@ -183,7 +183,7 @@ Begin Window PreferencesWindow
          Index           =   4
          InitialParent   =   "GoldGroupBox"
          Italic          =   False
-         Left            =   197
+         Left            =   354
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   True
@@ -215,7 +215,7 @@ Begin Window PreferencesWindow
          Index           =   3
          InitialParent   =   "GoldGroupBox"
          Italic          =   False
-         Left            =   354
+         Left            =   40
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   True
@@ -229,7 +229,7 @@ Begin Window PreferencesWindow
          TextFont        =   "System"
          TextSize        =   0.0
          TextUnit        =   0
-         Top             =   104
+         Top             =   136
          Underline       =   False
          Value           =   True
          Visible         =   True
@@ -247,7 +247,7 @@ Begin Window PreferencesWindow
          Index           =   0
          InitialParent   =   "GoldGroupBox"
          Italic          =   False
-         Left            =   40
+         Left            =   197
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   True
@@ -279,7 +279,7 @@ Begin Window PreferencesWindow
          Index           =   2
          InitialParent   =   "GoldGroupBox"
          Italic          =   False
-         Left            =   197
+         Left            =   354
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   True
@@ -311,7 +311,7 @@ Begin Window PreferencesWindow
          Index           =   1
          InitialParent   =   "GoldGroupBox"
          Italic          =   False
-         Left            =   354
+         Left            =   40
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   True
@@ -325,7 +325,39 @@ Begin Window PreferencesWindow
          TextFont        =   "System"
          TextSize        =   0.0
          TextUnit        =   0
-         Top             =   136
+         Top             =   168
+         Underline       =   False
+         Value           =   True
+         Visible         =   True
+         Width           =   145
+      End
+      Begin CheckBox GoldCoinSet
+         AutoDeactivate  =   True
+         Bold            =   False
+         Caption         =   "1 kilogram gold bar"
+         DataField       =   ""
+         DataSource      =   ""
+         Enabled         =   True
+         Height          =   20
+         HelpTag         =   ""
+         Index           =   6
+         InitialParent   =   "GoldGroupBox"
+         Italic          =   False
+         Left            =   40
+         LockBottom      =   False
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   False
+         LockTop         =   True
+         Scope           =   0
+         State           =   1
+         TabIndex        =   6
+         TabPanelIndex   =   0
+         TabStop         =   True
+         TextFont        =   "System"
+         TextSize        =   0.0
+         TextUnit        =   0
+         Top             =   104
          Underline       =   False
          Value           =   True
          Visible         =   True
@@ -355,7 +387,7 @@ Begin Window PreferencesWindow
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   188
+      Top             =   220
       Underline       =   False
       Visible         =   True
       Width           =   499
@@ -385,7 +417,7 @@ Begin Window PreferencesWindow
          TextFont        =   "System"
          TextSize        =   0.0
          TextUnit        =   0
-         Top             =   224
+         Top             =   256
          Underline       =   False
          Value           =   True
          Visible         =   True
@@ -417,7 +449,7 @@ Begin Window PreferencesWindow
          TextFont        =   "System"
          TextSize        =   0.0
          TextUnit        =   0
-         Top             =   224
+         Top             =   256
          Underline       =   False
          Value           =   True
          Visible         =   True
@@ -449,7 +481,7 @@ Begin Window PreferencesWindow
          TextFont        =   "System"
          TextSize        =   0.0
          TextUnit        =   0
-         Top             =   224
+         Top             =   256
          Underline       =   False
          Value           =   True
          Visible         =   True
@@ -481,7 +513,7 @@ Begin Window PreferencesWindow
          TextFont        =   "System"
          TextSize        =   0.0
          TextUnit        =   0
-         Top             =   256
+         Top             =   288
          Underline       =   False
          Value           =   True
          Visible         =   True
@@ -513,7 +545,7 @@ Begin Window PreferencesWindow
          TextFont        =   "System"
          TextSize        =   0.0
          TextUnit        =   0
-         Top             =   256
+         Top             =   288
          Underline       =   False
          Value           =   True
          Visible         =   True
