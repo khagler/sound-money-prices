@@ -719,7 +719,7 @@ End
 		  self.InitCheckBoxArrays
 		  
 		  // Next set up the default array to use if this pref was never set before.
-		  self.GoldDefaultPrefs = self.PopulateDefaultPrefs(6)
+		  self.GoldDefaultPrefs = self.PopulateDefaultPrefs(7)
 		  
 		  Dim prefsStates() As Boolean = self.VariantArrayToBooleanArray(App.Prefs.Value("GoldCoinPrefs", self.GoldDefaultPrefs))
 		  
