@@ -2,7 +2,17 @@
 Protected Class Rates
 	#tag Method, Flags = &h0
 		Function BitcoinsForFiat(fiat As Double) As Double
-		  Return fiat / self.BitcoinRate
+		  // Returns -1 if the bitcoin price found is greater than the number of bitcoins
+		  // which can exist.
+		  
+		  Dim btcPrice As Double
+		  btcPrice = fiat / self.BitcoinRate
+		  
+		  If btcPrice <= self.kMaxBitcoins Then
+		    Return btcPrice
+		  Else
+		    Return -1
+		  End If
 		End Function
 	#tag EndMethod
 
