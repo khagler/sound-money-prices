@@ -627,7 +627,12 @@ End
 		    
 		    self.GoldOunces.Text = Format(XAU, "##,###,###.0###")
 		    self.SilverOunces.Text = Format(XAG, "##,###,###.0###")
-		    self.Bitcoins.Text = Format(BTC, "##,###,###.0#######")
+		    If BTC = -1 Then
+		      self.Bitcoins.Text = "Not enough BTC"
+		    Else
+		      self.Bitcoins.Text = Format(BTC, "##,###,###.0#######")
+		    End If
+		    
 		    
 		    // Now build up a string containing the list of coins and set the CoinListArea to it
 		    Dim coinsText As String = ""
