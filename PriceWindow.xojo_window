@@ -628,6 +628,13 @@ End
 		    self.GoldOunces.Text = Format(XAU, "##,###,###.0###")
 		    self.SilverOunces.Text = Format(XAG, "##,###,###.0###")
 		    If BTC = -1 Then
+		      // Put up a dialog explaining that the price is too high for the number of bitcoins that
+		      // can possibly exist.
+		      Dim d As New MessageDialog
+		      Dim b As New MessageDialogButton
+		      d.Icon = MessageDialog.GraphicCaution
+		      d.Message = "At the current exchange rate, that fiat price exceeds the maximum possible number of Bitcoins."
+		      b = d.ShowModalWithin(self)  // We're not using the button returned, but we have to accept it.
 		      self.Bitcoins.Text = "Not enough BTC"
 		    Else
 		      self.Bitcoins.Text = Format(BTC, "##,###,###.0#######")
