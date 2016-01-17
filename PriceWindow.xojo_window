@@ -10,7 +10,7 @@ Begin Window PriceWindow
    FullScreenButton=   False
    HasBackColor    =   False
    Height          =   352
-   ImplicitInstance=   True
+   ImplicitInstance=   False
    LiveResize      =   True
    MacProcID       =   0
    MaxHeight       =   32000

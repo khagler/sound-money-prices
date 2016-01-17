@@ -23,6 +23,9 @@ Inherits Application
 		    self.CurrencyCodes.Value(code) = currenciesJSON.Value(code)
 		  Next
 		  
+		  Self.Prices = New PriceWindow
+		  Self.Prices.Show
+		  
 		  Dim prefsWindow As New PreferencesWindow
 		End Sub
 	#tag EndEvent
@@ -30,7 +33,8 @@ Inherits Application
 
 	#tag MenuHandler
 		Function HelpAboutSoundMoneyPrices() As Boolean Handles HelpAboutSoundMoneyPrices.Action
-			AboutWindow.Show
+			Dim about As New AboutWindow
+			about.Show
 			
 			Return True
 			
@@ -39,7 +43,8 @@ Inherits Application
 
 	#tag MenuHandler
 		Function ToolsPrefs() As Boolean Handles ToolsPrefs.Action
-			PreferencesWindow.Show
+			Dim prefs As New PreferencesWindow
+			prefs.Show
 			
 			Return True
 			
@@ -82,6 +87,10 @@ Inherits Application
 
 	#tag Property, Flags = &h0
 		Prefs As TTsSmartPreferences
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		Prices As PriceWindow
 	#tag EndProperty
 
 

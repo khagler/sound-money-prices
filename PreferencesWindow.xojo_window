@@ -10,7 +10,7 @@ Begin Window PreferencesWindow
    FullScreenButton=   False
    HasBackColor    =   False
    Height          =   348
-   ImplicitInstance=   True
+   ImplicitInstance=   False
    LiveResize      =   True
    MacProcID       =   0
    MaxHeight       =   32000
@@ -703,7 +703,7 @@ End
 		  App.Prefs.Sync
 		  
 		  // Set the fiat price in PriceWindow to itself to force a recalculation using the changed prefs.
-		  PriceWindow.FiatPrice.Text = PriceWindow.FiatPrice.Text
+		  App.Prices.FiatPrice.Text = App.Prices.FiatPrice.Text
 		End Sub
 	#tag EndEvent
 	#tag Event
@@ -757,7 +757,7 @@ End
 		  App.Prefs.Sync
 		  
 		  // Set the fiat price in PriceWindow to itself to force a recalculation using the changed prefs.
-		  PriceWindow.FiatPrice.Text = PriceWindow.FiatPrice.Text
+		  App.Prices.FiatPrice.Text = App.Prices.FiatPrice.Text
 		End Sub
 	#tag EndEvent
 	#tag Event
