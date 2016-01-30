@@ -188,9 +188,6 @@ Protected Class Rates
 	#tag EndProperty
 
 
-	#tag Constant, Name = kBitcoinRatesURL, Type = String, Dynamic = False, Default = \"http://api.bitcoincharts.com/v1/weighted_prices.json", Scope = Private
-	#tag EndConstant
-
 	#tag Constant, Name = kMaxBitcoins, Type = Double, Dynamic = False, Default = \"20999999.9769", Scope = Private
 	#tag EndConstant
 
