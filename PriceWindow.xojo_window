@@ -587,8 +587,7 @@ End
 		  Dim savedRates As New Dictionary
 		  Dim currentDate As New Date
 		  savedRates.Value("RatesDate") = currentDate
-		  savedRates.Value("BitcoinRates") = Rates.BitcoinRatesJSON.ToString
-		  savedRates.Value("PMRates") = Rates.RatesXML.ToString
+		  savedRates.Value("Rates") = Rates.RatesXML.ToString
 		  App.Prefs.Value("LastRates") = savedRates
 		  App.Prefs.Sync
 		End Sub
@@ -701,8 +700,8 @@ End
 		  
 		  Dim rateObj As New Rates("USD")
 		  
-		  If rateObj.BitcoinRatesJSON = Nil And rateObj.RatesXML = Nil Then
-		    While rateObj.BitcoinRatesJSON = Nil And rateObj.RatesXML = Nil
+		  If rateObj.RatesXML = Nil Then
+		    While rateObj.RatesXML = Nil
 		      App.SleepCurrentThread(1000)
 		    Wend
 		  End If
