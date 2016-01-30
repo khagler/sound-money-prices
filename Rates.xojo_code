@@ -45,8 +45,8 @@ Protected Class Rates
 		  End If
 		  
 		  self.CurrencyCode = currencyCode
-		  self.GetPreciousMetalRates
-		  self.GetBitcoinRates
+		  self.GetRates
+		  
 		End Sub
 	#tag EndMethod
 
@@ -101,14 +101,6 @@ Protected Class Rates
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Sub GetPreciousMetalRates()
-		  self.GoldRate = self.GetRateFromXML(self.RatesXML, "XAU" + self.CurrencyCode)
-		  self.SilverRate = self.GetRateFromXML(self.RatesXML, "XAG" + self.CurrencyCode)
-		  
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
 		Private Function GetRateFromXML(xml As XmlDocument, id As String) As Currency
 		  // Takes an XmlDocument containing all of the returned rates, and a String containing the ID
 		  // of one of the rates.
@@ -120,6 +112,15 @@ Protected Class Rates
 		  Dim v As Variant = rateString
 		  Return v.CurrencyValue
 		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub GetRates()
+		  self.GoldRate = self.GetRateFromXML(self.RatesXML, "XAU" + self.CurrencyCode)
+		  self.SilverRate = self.GetRateFromXML(self.RatesXML, "XAG" + self.CurrencyCode)
+		  self.BitcoinRate = self.GetRateFromXML(self.RatesXML, "BTC" + self.CurrencyCode)
+		  
+		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
