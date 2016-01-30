@@ -167,10 +167,6 @@ Protected Class Rates
 		BitcoinRate As Currency
 	#tag EndProperty
 
-	#tag Property, Flags = &h0
-		Shared BitcoinRatesJSON As JSONItem
-	#tag EndProperty
-
 	#tag Property, Flags = &h21
 		Private CurrencyCode As String = "USD"
 	#tag EndProperty
