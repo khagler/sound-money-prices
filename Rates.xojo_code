@@ -50,19 +50,6 @@ Protected Class Rates
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h21
-		Private Sub EstimateBitcoinRate()
-		  // This method is used if there's no Bitcoin exchange rate available for the currency.
-		  // We'll approximate by looking converting the gold equivalent to dollars, and from
-		  // dollars to Bitcoin.
-		  Dim goldInDollars As Currency = self.GetRateFromXML(self.RatesXML, "XAUUSD")
-		  Dim btcInDollars As Currency = self.BitcoinRatesJSON.Child("USD").Value("24h")
-		  Dim fiatInDollars As Currency = self.GoldRate / goldInDollars
-		  self.BitcoinRate = fiatInDollars * btcInDollars
-		  
-		End Sub
-	#tag EndMethod
-
 	#tag Method, Flags = &h0
 		Function FiatForGoldWeight(weight As Double) As Double
 		  Return self.GoldRate * weight
@@ -73,31 +60,6 @@ Protected Class Rates
 		Function FiatForSilverWeight(weight As Double) As Double
 		  Return self.SilverRate * weight
 		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Sub GetBitcoinRates()
-		  If Not self.BitcoinRatesJSON.HasName(self.CurrencyCode) Then
-		    // The JSON has no value for this currency, so use an estimate
-		    self.EstimateBitcoinRate
-		  Else
-		    Dim currencyJSON As JSONItem = self.BitcoinRatesJSON.Child(self.CurrencyCode)
-		    
-		    Select Case True
-		    Case currencyJSON.HasName("24h")
-		      self.BitcoinRate = currencyJSON.Value("24h")
-		    Case currencyJSON.HasName("7d")
-		      self.BitcoinRate = currencyJSON.Value("7d")
-		    Case currencyJSON.HasName("30d")
-		      self.BitcoinRate = currencyJSON.Value("30d")
-		    Else
-		      // We got a JSON value for the currency, but it doesn't actually have any rates
-		      // in it. I'm not sure if this situation can actually occur, but if it does we'll fall
-		      // back on an estimate
-		      self.EstimateBitcoinRate
-		    End Select
-		  End If
-		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
