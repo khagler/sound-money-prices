@@ -44,8 +44,8 @@ Protected Class Rates
 		    
 		  End If
 		  
-		  if self.PMRatesXML = Nil Then
-		    self.PMRatesXML = New XmlDocument
+		  if self.RatesXML = Nil Then
+		    self.RatesXML = New XmlDocument
 		    
 		    // TODO: Make this asynchronous
 		    rateSocket.Yield = True
@@ -60,7 +60,7 @@ Protected Class Rates
 		      oldRatesMessage = oldRatesMessage + "precious metals"
 		    End If
 		    Try
-		      self.PMRatesXML.LoadXml(ratesString)
+		      self.RatesXML.LoadXml(ratesString)
 		    Catch e As XmlException
 		      MsgBox("XML error: " + e.Message)
 		    End Try
@@ -83,7 +83,7 @@ Protected Class Rates
 		  // This method is used if there's no Bitcoin exchange rate available for the currency.
 		  // We'll approximate by looking converting the gold equivalent to dollars, and from
 		  // dollars to Bitcoin.
-		  Dim goldInDollars As Currency = self.GetRateFromXML(self.PMRatesXML, "XAUUSD")
+		  Dim goldInDollars As Currency = self.GetRateFromXML(self.RatesXML, "XAUUSD")
 		  Dim btcInDollars As Currency = self.BitcoinRatesJSON.Child("USD").Value("24h")
 		  Dim fiatInDollars As Currency = self.GoldRate / goldInDollars
 		  self.BitcoinRate = fiatInDollars * btcInDollars
@@ -130,8 +130,8 @@ Protected Class Rates
 
 	#tag Method, Flags = &h21
 		Private Sub GetPreciousMetalRates()
-		  self.GoldRate = self.GetRateFromXML(self.PMRatesXML, "XAU" + self.CurrencyCode)
-		  self.SilverRate = self.GetRateFromXML(self.PMRatesXML, "XAG" + self.CurrencyCode)
+		  self.GoldRate = self.GetRateFromXML(self.RatesXML, "XAU" + self.CurrencyCode)
+		  self.SilverRate = self.GetRateFromXML(self.RatesXML, "XAG" + self.CurrencyCode)
 		  
 		End Sub
 	#tag EndMethod
@@ -180,7 +180,7 @@ Protected Class Rates
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		Shared PMRatesXML As XmlDocument
+		Shared RatesXML As XmlDocument
 	#tag EndProperty
 
 	#tag Property, Flags = &h0

@@ -580,7 +580,7 @@ End
 		  // We want to save the current rates in case the next time we run there's a
 		  // network problem that interferes with retrieving the rates. We'll save them in
 		  // a dictionary with the date (so we can display the age of the rates if we need
-		  // to use them) and the contents of the BitcoinRatesJSON and PMRatesXML
+		  // to use them) and the contents of the BitcoinRatesJSON and RatesXML
 		  // shared properties. We're using the shared properties instead of the
 		  // CurrentRates array because it's easier to convert JSON and XML to and
 		  // from a string than it is to serialize and deserialize the Rates objects.
@@ -588,7 +588,7 @@ End
 		  Dim currentDate As New Date
 		  savedRates.Value("RatesDate") = currentDate
 		  savedRates.Value("BitcoinRates") = Rates.BitcoinRatesJSON.ToString
-		  savedRates.Value("PMRates") = Rates.PMRatesXML.ToString
+		  savedRates.Value("PMRates") = Rates.RatesXML.ToString
 		  App.Prefs.Value("LastRates") = savedRates
 		  App.Prefs.Sync
 		End Sub
@@ -695,14 +695,14 @@ End
 		  // Note that control's Open events fire before the Window's Open, so this is where
 		  // the actual downloading of the rates happens. Once PriceWindow.Open runs to
 		  // populate the CurrentRates property, the Rates.BitcoinRatesJSON and
-		  // Rates.PMRatesXML shared properties will be set.
+		  // Rates.RatesXML shared properties will be set.
 		  
 		  me.Visible = True
 		  
 		  Dim rateObj As New Rates("USD")
 		  
-		  If rateObj.BitcoinRatesJSON = Nil And rateObj.PMRatesXML = Nil Then
-		    While rateObj.BitcoinRatesJSON = Nil And rateObj.PMRatesXML = Nil
+		  If rateObj.BitcoinRatesJSON = Nil And rateObj.RatesXML = Nil Then
+		    While rateObj.BitcoinRatesJSON = Nil And rateObj.RatesXML = Nil
 		      App.SleepCurrentThread(1000)
 		    Wend
 		  End If
