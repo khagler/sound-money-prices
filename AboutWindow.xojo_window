@@ -9,7 +9,7 @@ Begin Window AboutWindow
    FullScreen      =   False
    FullScreenButton=   False
    HasBackColor    =   False
-   Height          =   162
+   Height          =   206
    ImplicitInstance=   False
    LiveResize      =   True
    MacProcID       =   0
@@ -22,7 +22,7 @@ Begin Window AboutWindow
    MinimizeButton  =   True
    MinWidth        =   64
    Placement       =   0
-   Resizeable      =   True
+   Resizeable      =   False
    Title           =   "About Sound Money Prices"
    Visible         =   True
    Width           =   542
@@ -66,12 +66,12 @@ Begin Window AboutWindow
       DataField       =   ""
       DataSource      =   ""
       Enabled         =   True
-      Height          =   20
+      Height          =   28
       HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   210
+      Left            =   202
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -88,7 +88,7 @@ Begin Window AboutWindow
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   80
+      Top             =   119
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -100,7 +100,7 @@ Begin Window AboutWindow
       DataField       =   ""
       DataSource      =   ""
       Enabled         =   True
-      Height          =   20
+      Height          =   25
       HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
@@ -122,12 +122,46 @@ Begin Window AboutWindow
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   112
+      Top             =   161
       Transparent     =   False
       Underline       =   False
       URL             =   "http://www.orange-road.com/"
       Visible         =   True
       Width           =   139
+   End
+   Begin Label VersionLabel
+      AutoDeactivate  =   True
+      Bold            =   False
+      DataField       =   ""
+      DataSource      =   ""
+      Enabled         =   True
+      Height          =   20
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   202
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   3
+      TabPanelIndex   =   0
+      Text            =   ""
+      TextAlign       =   0
+      TextColor       =   &c00000000
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   85
+      Transparent     =   True
+      Underline       =   False
+      Visible         =   True
+      Width           =   150
    End
 End
 #tag EndWindow
@@ -145,3 +179,10 @@ End
 
 #tag EndWindowCode
 
+#tag Events VersionLabel
+	#tag Event
+		Sub Open()
+		  Me.Text = "Version " + App.ShortVersion
+		End Sub
+	#tag EndEvent
+#tag EndEvents
