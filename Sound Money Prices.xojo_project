@@ -565,6 +565,7 @@ Class=Rates;Rates.xojo_code;&h220E5FFF;&h0;false
 Class=CoinList;CoinList.xojo_code;&h3115A7FF;&h0;false
 Folder=Third Party;Third Party;&h1C1B5FFF;&h0;false
 Folder=macoslib;Third Party/macoslib;&hD8BF7FF;&h1C1B5FFF;false
+Class=Coin;Coin.xojo_code;&h5AB4EFFF;&h0;false
 DefaultWindow=PriceWindow
 AppMenuBar=MainMenuBar
 MajorVersion=1
