@@ -1,5 +1,40 @@
 #tag Class
 Protected Class Coin
+	#tag Method, Flags = &h0
+		Sub Constructor(coinName As String = "", coinWeight As Double = 0.0, coinMetal As Metals = Metals.Gold)
+		  // This is the default constructor.
+		  
+		  self.Name = coinName
+		  self.Weight = coinWeight
+		  self.Metal = coinMetal
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub Constructor(coinName As String, coinWeight As Double, coinMetal As String)
+		  // This constructor is used when the metal type is a string. It just calls the default constructor with
+		  // the appropriate value from the Metals enumeration in place of that string, or raises an exception
+		  // if the metal type is unknown.
+		  
+		  Select Case coinMetal.Lowercase
+		  Case "copper"
+		    self.Constructor(coinName, coinWeight, Metals.Copper)
+		  Case "silver"
+		    self.Constructor(coinName, coinWeight, Metals.Silver)
+		  Case "gold"
+		    self.Constructor(coinName, coinWeight, Metals.Gold)
+		  Case "platinum"
+		    self.Constructor(coinName, coinWeight, Metals.Platinum)
+		  Else
+		    Dim r As New RuntimeException
+		    r.ErrorNumber = -1
+		    r.Message = "Unknown metal type: " + coinMetal
+		    Raise r
+		  End Select
+		End Sub
+	#tag EndMethod
+
+
 	#tag Property, Flags = &h0
 		Metal As Metals
 	#tag EndProperty
@@ -37,6 +72,11 @@ Protected Class Coin
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="Metal"
+			Group="Behavior"
+			Type="Metals"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Name"
 			Visible=true
 			Group="ID"
@@ -45,7 +85,7 @@ Protected Class Coin
 		#tag ViewProperty
 			Name="Name"
 			Group="Behavior"
-			Type="Integer"
+			Type="String"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
@@ -59,6 +99,11 @@ Protected Class Coin
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Weight"
+			Group="Behavior"
+			Type="Double"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class
