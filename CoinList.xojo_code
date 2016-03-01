@@ -205,6 +205,10 @@ Protected Class CoinList
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		Shared KnownCoins() As Coin
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		Shared SilverCoins As Dictionary
 	#tag EndProperty
 
