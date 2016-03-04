@@ -157,16 +157,12 @@ Protected Class CoinList
 	#tag Method, Flags = &h0
 		 Shared Sub SetKnownCoins(coinsJSON As JSONItem)
 		  // Takes JSON containing all of the known coins and sets up the class's
-		  // GoldCoins and SilverCoins shared properties. This needs to be called
-		  // before CoinList can be instantiated.
+		  // KnownCoins shared property. This needs to be called  before a CoinList
+		  // instance can be used.
 		  
-		  If coinsJSON.HasName("gold") Then
-		    CoinList.CoinJSONToDictionary(coinsJSON.Value("gold"), "gold")
-		  End If
-		  
-		  If coinsJSON.HasName("silver") Then
-		    CoinList.CoinJSONToDictionary(coinsJSON.Value("silver"), "silver")
-		  End If
+		  For Each coinObject As JSONItem In New JSONItem(Constants.kCoinWeights)
+		    self.KnownCoins.Append Coin(coinObject)
+		  Next
 		End Sub
 	#tag EndMethod
 
