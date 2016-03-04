@@ -1,47 +1,6 @@
 #tag Class
 Protected Class CoinList
 	#tag Method, Flags = &h0
-		 Shared Sub AddCoin(coinMetal As String, coinName As String, coinWeight As String)
-		  Select Case coinMetal
-		  Case "silver"
-		    If Not CoinList.SilverCoins.HasKey(coinWeight) Then
-		      CoinList.SilverCoins.Value(coinWeight) = coinName
-		    End If
-		  Case "gold"
-		    If Not CoinList.GoldCoins.HasKey(coinWeight) Then
-		      CoinList.GoldCoins.Value(coinWeight) = coinName
-		    End If
-		  End Select
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Shared Sub CoinJSONToDictionary(coins As JSONItem, metal As String)
-		  // This method takes a JSON item with coin names as keys and coin weights
-		  // as values, and returns a dictionary with the weights as the keys and the
-		  // names as the values. It's done this way because it's easier to maintain the
-		  // JSON with the names as the keys, but easier to figure out which coins to
-		  // use with weights as the keys.
-		  
-		  Dim coinDict As New Dictionary
-		  
-		  // Assign a new dictonary to the shared property, wiping out anything that
-		  // was already there.
-		  Select Case metal
-		  Case "gold"
-		    CoinList.GoldCoins = New Dictionary
-		  Case "silver"
-		    CoinList.SilverCoins = New Dictionary
-		  End Select
-		  
-		  For Each coin As String In coins.Names
-		    CoinList.AddCoin(metal, coin, coins.Value(coin))
-		  Next
-		  
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
 		Sub Constructor()
 		  // If either the GoldCoins or SilverCoins shared property is nil, we need to load the
 		  // JSON containing the known coins into them.
