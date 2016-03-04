@@ -1,6 +1,14 @@
 #tag Class
 Protected Class Coin
 	#tag Method, Flags = &h0
+		Sub Constructor(coinJSON As JSONItem)
+		  // This constructor takes a JSON object such as those found in Constants.kCoinWeights.
+		  
+		  self.Constructor(coinJSON.Value("name"), coinJSON.Value("weight"), coinJSON.Value("metal"))
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub Constructor(coinName As String = "", coinWeight As Double = 0.0, coinMetal As Metals = Metals.Gold)
 		  // This is the default constructor.
 		  
