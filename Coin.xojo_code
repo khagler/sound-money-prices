@@ -4,7 +4,7 @@ Protected Class Coin
 		Sub Constructor(coinJSON As JSONItem)
 		  // This constructor takes a JSON object such as those found in Constants.kCoinWeights.
 		  
-		  self.Constructor(coinJSON.Value("name"), coinJSON.Value("weight"), coinJSON.Value("metal"))
+		  self.Constructor(coinJSON.Value("name").StringValue, coinJSON.Value("weight").DoubleValue, coinJSON.Value("metal").StringValue)
 		End Sub
 	#tag EndMethod
 
