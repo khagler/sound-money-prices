@@ -110,8 +110,8 @@ Protected Class CoinList
 		  // KnownCoins shared property. This needs to be called  before a CoinList
 		  // instance can be used.
 		  
-		  For Each coinObject As JSONItem In New JSONItem(Constants.kCoinWeights)
-		    self.KnownCoins.Append Coin(coinObject)
+		  For i As Integer = 0 To coinsJSON.Count - 1
+		    CoinList.KnownCoins.Append Coin(coinsJSON.Child(i))
 		  Next
 		End Sub
 	#tag EndMethod
