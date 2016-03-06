@@ -89,17 +89,8 @@ Protected Class CoinList
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Sub RemoveCoin(coinMetal As String, coinWeight As String)
-		  Select Case coinMetal
-		  Case "silver"
-		    If CoinList.SilverCoins.HasKey(coinWeight) Then
-		      CoinList.SilverCoins.Remove(coinWeight)
-		    End If
-		  Case "gold"
-		    If CoinList.GoldCoins.HasKey(coinWeight) Then
-		      CoinList.GoldCoins.Remove(coinWeight)
-		    End If
-		  End Select
+		 Shared Sub RemoveCoin(coinToRemove As Coin)
+		  CoinList.KnownCoins.Remove CoinList.KnownCoins.IndexOf(coinToRemove)
 		End Sub
 	#tag EndMethod
 
