@@ -5,7 +5,7 @@ Protected Class CoinList
 		  // If either the GoldCoins or SilverCoins shared property is nil, we need to load the
 		  // JSON containing the known coins into them.
 		  If self.GoldCoins = Nil Or self.SilverCoins = Nil Then
-		    self.SetKnownCoins(New JSONItem(self.kCoinWeights))
+		    self.SetKnownCoins(New JSONItem(Constants.kCoinWeights))
 		  End If
 		  
 		  // We need to create a new dictionary with keys of all the coin types and values of 0
