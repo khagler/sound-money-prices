@@ -5,7 +5,7 @@ Protected Class CoinList
 		  // If either the GoldCoins or SilverCoins shared property is nil, we need to load the
 		  // JSON containing the known coins into them.
 		  If self.GoldCoins = Nil Or self.SilverCoins = Nil Then
-		    self.SetKnownCoins(New JSONItem(Constants.kCoinWeights))
+		    self.SetCoinsUsed(New JSONItem(Constants.kCoinWeights))
 		  End If
 		  
 		  // We need to create a new dictionary with keys of all the coin types and values of 0
@@ -90,7 +90,7 @@ Protected Class CoinList
 
 	#tag Method, Flags = &h0
 		 Shared Sub RemoveCoin(coinToRemove As Coin)
-		  CoinList.KnownCoins.Remove CoinList.KnownCoins.IndexOf(coinToRemove)
+		  CoinList.CoinsUsed.Remove CoinList.CoinsUsed.IndexOf(coinToRemove)
 		End Sub
 	#tag EndMethod
 
@@ -105,13 +105,13 @@ Protected Class CoinList
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		 Shared Sub SetKnownCoins(coinsJSON As JSONItem)
+		 Shared Sub SetCoinsUsed(coinsJSON As JSONItem)
 		  // Takes JSON containing all of the known coins and sets up the class's
-		  // KnownCoins shared property. This needs to be called  before a CoinList
+		  // CoinsUsed shared property. This needs to be called  before a CoinList
 		  // instance can be used.
 		  
 		  For i As Integer = 0 To coinsJSON.Count - 1
-		    CoinList.KnownCoins.Append Coin(coinsJSON.Child(i))
+		    CoinList.CoinsUsed.Append Coin(coinsJSON.Child(i))
 		  Next
 		End Sub
 	#tag EndMethod
@@ -147,11 +147,11 @@ Protected Class CoinList
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		Shared GoldCoins As Dictionary
+		Shared CoinsUsed() As Coin
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		Shared KnownCoins() As Coin
+		Shared GoldCoins As Dictionary
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -182,11 +182,6 @@ Protected Class CoinList
 			Name="Name"
 			Visible=true
 			Group="ID"
-			Type="String"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="StringValue"
-			Group="Behavior"
 			Type="String"
 		#tag EndViewProperty
 		#tag ViewProperty
