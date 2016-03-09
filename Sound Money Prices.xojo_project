@@ -560,6 +560,7 @@ BuildSteps=Build Automation;Build Automation.xojo_code;&h74CD2FFF;&h0;false
 Window=AboutWindow;AboutWindow.xojo_window;&h444D87FF;&h0;false
 Window=PreferencesWindow;PreferencesWindow.xojo_window;&h6E0E4FFF;&h0;false
 Class=HyperLabel;HyperLabel.xojo_code;&h102A6784;&h0;false
+Window=CoinPreference;CoinPreference.xojo_window;&h2E5DFFF;&h0;false
 Module=Constants;Constants.xojo_code;&h71A3CFFF;&h0;false
 Class=Rates;Rates.xojo_code;&h220E5FFF;&h0;false
 Class=Coin;Coin.xojo_code;&h5AB4EFFF;&h0;false
