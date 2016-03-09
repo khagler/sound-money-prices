@@ -76,58 +76,6 @@ End
 #tag EndWindowCode
 
 #tag Events CoinCheckbox
-	#tag Event
-		Sub Action()
-		  // Add or remove the coin from the list of coins being used by CoinList, depending on the
-		  // checkbox state.
-		  If GoldCoinSet(index).Value Then
-		    CoinList.AddCoin("gold", self.GoldCoinForCheckBox(index).Value("name"), self.GoldCoinForCheckBox(index).Value("weight"))
-		  Else
-		    CoinList.RemoveCoin("gold", self.GoldCoinForCheckBox(index).Value("weight"))
-		  End If
-		  
-		  // Now update the preferences. To do this we have to get the prefs array for this coin type
-		  // from the prefs, modify our local copy of the array, then set the prefs value to our
-		  // modified array.
-		  Dim prefsStates() As Boolean = self.VariantArrayToBooleanArray(App.Prefs.Value("GoldCoinPrefs", self.GoldDefaultPrefs))
-		  prefsStates(index) = GoldCoinSet(index).Value
-		  App.Prefs.Value("GoldCoinPrefs") = prefsStates
-		  App.Prefs.Sync
-		  
-		  // Set the fiat price in PriceWindow to itself to force a recalculation using the changed prefs.
-		  App.Prices.FiatPrice.Text = App.Prices.FiatPrice.Text
-		End Sub
-	#tag EndEvent
-	#tag Event
-		Sub Open()
-		  // We need to check the preferences to see which coin checkboxes should be
-		  // checked. There is an array in the prefs for the type of coin, with boolean
-		  // values that correspond to the checkboxes with the same index in their
-		  // respective control sets.
-		  
-		  // Set up the arrays used for the checkbox control sets in PreferencesWindow. We
-		  // have to do this in the Open handler for both control sets because we can't be
-		  // sure which will be called first.
-		  self.InitCheckBoxArrays
-		  
-		  // Next set up the default array to use if this pref was never set before.
-		  Dim controlSetSize As Integer = 7
-		  self.GoldDefaultPrefs = self.PopulateDefaultPrefs(controlSetSize)
-		  
-		  Dim prefsStates() As Boolean = self.VariantArrayToBooleanArray(App.Prefs.Value("GoldCoinPrefs", self.GoldDefaultPrefs))
-		  
-		  // Check if the saved states from the prefs is the same as the control set size.
-		  // If it's not, the number of checkboxes in the control set has changed since the
-		  // pref was written. We'll replace the prefs with the default prefs since there's
-		  // no way to know exactly which checkbox was added or removed.
-		  If prefsStates.Ubound <> self.GoldDefaultPrefs.Ubound Then
-		    prefsStates = self.VariantArrayToBooleanArray(self.GoldDefaultPrefs)
-		    App.Prefs.Value("GoldCoinPrefs") = prefsStates
-		  End If
-		  
-		  GoldCoinSet(index).Value = prefsStates(index)
-		End Sub
-	#tag EndEvent
 #tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
