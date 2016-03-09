@@ -86,6 +86,10 @@ Inherits Application
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		KnownCoins() As Coin
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		Prefs As TTsSmartPreferences
 	#tag EndProperty
 
