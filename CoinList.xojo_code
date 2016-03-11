@@ -99,7 +99,11 @@ Protected Class CoinList
 
 	#tag Method, Flags = &h0
 		 Shared Sub RemoveCoin(coinToRemove As Coin)
-		  CoinList.CoinsUsed.Remove CoinList.CoinsUsed.IndexOf(coinToRemove)
+		  // Removes all occurences of coinToRemove that exist in CoinsUsed, in case any
+		  // duplicates find their way in.
+		  While CoinsUsed.IndexOf(coinToRemove) <> -1
+		    CoinsUsed.Remove CoinsUsed.IndexOf(coinToRemove)
+		  Wend
 		End Sub
 	#tag EndMethod
 
