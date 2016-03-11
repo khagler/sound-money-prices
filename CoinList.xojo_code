@@ -1,6 +1,15 @@
 #tag Class
 Protected Class CoinList
 	#tag Method, Flags = &h0
+		 Shared Sub AddCoin(coinToAdd As Coin)
+		  // Only add the coin if it's not already in the array
+		  If CoinsUsed.IndexOf(coinToAdd) = -1 Then
+		    CoinsUsed.Append coinToAdd
+		  End If
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub Constructor()
 		  // If either the GoldCoins or SilverCoins shared property is nil, we need to load the
 		  // JSON containing the known coins into them.
