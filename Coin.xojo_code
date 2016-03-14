@@ -1,6 +1,29 @@
 #tag Class
 Protected Class Coin
 	#tag Method, Flags = &h0
+		 Shared Function CoinCompare(value1 As Coin, value2 As Coin) As Integer
+		  // This method is meant to Sort as a delegate. If the Coin objects are of different metals, it sorts by
+		  // metal type from least to most valuable metal. If they are the same metal, it sorts by weight.
+		  
+		  Select Case True
+		  Case value1.Metal < value2.Metal
+		    Return -1
+		  Case value1.Metal > value2.Metal
+		    Return 1
+		  Else
+		    Select Case True
+		    Case value1.Weight < value2.Weight
+		      Return -1
+		    Case value1.Weight > value2.Weight
+		      Return 1
+		    Else
+		      Return 0
+		    End Select
+		  End Select
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub Constructor(coinJSON As JSONItem)
 		  // This constructor takes a JSON object such as those found in Constants.kCoinWeights.
 		  
